@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   var mainNavLinks = document.querySelectorAll('.main-nav a');
-  mainNavLinks.forEach(function(link) {
+  Array.from(mainNavLinks).forEach(function(link) {
     link.addEventListener('click', function(){
         mainNav.classList.remove('show-main-nav');
     });
@@ -212,13 +212,13 @@ document.addEventListener('DOMContentLoaded', function(){
   var popupParticipateBlock = document.querySelector('.participate-popup__block');
   var popupParticipate = document.querySelectorAll('.participate__choose-btn');
   var popupParticipateTourBtn = document.querySelectorAll('.program__days-content-participate');
-  popupParticipate.forEach(function(link) {
+  Array.from(popupParticipate).forEach(function(link) {
     link.addEventListener('click', function(){
         popupOverlay.classList.add('participate-popup--show');
         document.querySelector('body').classList.add('stop-scrolling');
     });
   });
-  popupParticipateTourBtn.forEach(function(link) {
+  Array.from(popupParticipateTourBtn).forEach(function(link) {
     link.addEventListener('click', function(){
         popupOverlay.classList.add('participate-popup--show');
         document.querySelector('body').classList.add('stop-scrolling');
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function(){
   //табы для блока с вопросами
 
   var tabsQuestions = document.querySelectorAll('.questions__tab')
-  tabsQuestions.forEach(function(link) {
+  Array.from(tabsQuestions).forEach(function(link) {
     link.addEventListener('click', function(){
       var tab_id = this.getAttribute('data-tab');
 
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   var popupTutors = document.querySelectorAll('.tutors__item');
-  popupTutors.forEach(function(link) {
+  Array.from(popupTutors).forEach(function(link) {
     link.addEventListener('click', function(){
       var tab_id = this.getAttribute('data-tab');
         document.querySelector('.tutors-popup').classList.add('tutors-popup--show');
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   //Попап для отзывов/результатов
   var popupResults = document.querySelectorAll('.results__item');
-  popupResults.forEach(function(link) {
+  Array.from(popupResults).forEach(function(link) {
     link.addEventListener('click', function(evt){
       evt.preventDefault();
       var tab_id = this.getAttribute('data-tab');

@@ -119,7 +119,7 @@ var tours = {
 }
 
 var tabsDays = document.querySelectorAll('.program__days-tabs-slide')
-Array.from(tabsDays).forEach(link => {
+Array.from(tabsDays).forEach(function(link) {
   link.addEventListener('click', function(){
     var tab_id = this.getAttribute('data-tab');
 
