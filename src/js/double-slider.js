@@ -4,49 +4,120 @@ var swiperTours = new Swiper('.tours .swiper-container', {
   slideToClickedSlide: true,
   pagination: {
     el: '.tours .swiper-pagination',
-    clickable: true,
+   clickable: true,
   },
   breakpoints: {
-    480: {
-      spaceBetween: 10,
+   480: {
+     spaceBetween: 10,
+   },
+   780: {
+     spaceBetween: 16,
+   }
+  },
+
+  on: {
+      init: function () {
+          events.on('tourTabChanged', function(index) {
+              if (this.activeIndex !== index || (this.activeIndex === index && this.isEnd)) {
+                  this.slideTo(index);
+              }
+          }.bind(this));
+
+          events.on('tourButtonClicked', function(index){
+              if (this.activeIndex !== index ) {
+                  this.slideTo(index);
+              }
+          }.bind(this));
+      },
+
+      slideChange: function () {
+          events.emit('tourSlideChanged', this.activeIndex);
+      },
+      click: function () {
+          events.emit('tourSlideChanged', this.activeIndex);
+      },
+
+      reachEnd: function () {
+        // -2 потомучто слайдов сейчас 6. Нумерация индексов идет с 0, это уже -1.
+        // И до края мы доходим уже на 5 слайде, соответственно нам нужен 4-й
+          events.emit('tourSlideChanged', this.slides.length-2);
+        }
+  },
+});
+
+var toursTabs = {
+    index: 0,
+    init() {
+        this.cacheDom();
+        this.bindEvents();
     },
-    780: {
-      spaceBetween: 16,
+
+    cacheDom() {
+        this.$toursTabs = $('.js-tours-tab'),
+        this.$toursContents = $('.js-tours-tab-content')
+    },
+
+    makeTabActive(index) {
+        this.$toursTabs.each( function (index, element) {
+            $(element).removeClass('current');
+        })
+        this.$toursTabs.eq(index).addClass('current')
+    },
+
+    showContent(index) {
+        this.$toursContents.each( function (index, element) {
+            $(element).hide(0);
+        })
+        this.$toursContents.eq(index).fadeIn(200)
+    },
+
+    setTab(index) {
+        this.makeTabActive(index);
+        this.showContent(index);
+    },
+
+    bindEvents() {
+        events.on('tourSlideChanged', function(index){
+            if (this.index !== index) {
+                this.setTab(index);
+            }
+        }.bind(this));
+
+        events.on('tourButtonClicked', function(index){
+            if (this.index !== index) {
+                this.setTab(index);
+            }
+        }.bind(this));
+
+        this.$toursTabs.on('click',function (e) {
+           this.index = $(e.currentTarget).index();
+
+            this.setTab(this.index);
+
+            events.emit('tourTabChanged', this.index);
+        }.bind(this));
     }
-  }
-});
+}
 
-var tabTourButtons = new Swiper('.topic-program__tabs', {
-  slidesPerView: 'auto',
-  slideToClickedSlide: true,
-});
+var tours = {
+    init() {
+        this.cacheDom();
+        this.bindEvents();
+    },
 
-tabTourButtons.controller.control = swiperTours;
-swiperTours.controller.control = tabTourButtons;
+    cacheDom() {
+      this.$toursBtns = $('.js-tour-btn')
+    },
 
-var tabsProgram = document.querySelectorAll('.topic-program__tabs .swiper-slide')
-Array.from(tabsProgram).forEach(link => {
-  link.addEventListener('click', function(){
-    var tab_id = this.getAttribute('data-tab');
+    bindEvents() {
+        this.$toursBtns.on('click',function (e) {
+            this.index = $(e.currentTarget).closest('.js-tours-item').index();
 
-    document.querySelector('.topic-program__tabs .swiper-slide.current').classList.remove('current');
-    document.querySelector('.topic-program__content .swiper-slide.current').classList.remove('current');
+            events.emit('tourButtonClicked', this.index);
+        }.bind(this));
+    }
+}
 
-    this.classList.add('current');
-    document.querySelector("#"+tab_id).classList.add('current');
-  });
-});
-
-
-// инициализация слайдера с табами дней в каждом туре
-var tabDaysButtons = new Swiper('.program__days-tabs', {
-  slidesPerView: 'auto',
-  slideToClickedSlide: true,
-  freeModeSticky: true,
-  slideClass: 'program__days-tabs-slide',
-});
-
-// переключение по табам дней в каждом туре
 var tabsDays = document.querySelectorAll('.program__days-tabs-slide')
 Array.from(tabsDays).forEach(link => {
   link.addEventListener('click', function(){
@@ -62,14 +133,5 @@ Array.from(tabsDays).forEach(link => {
   });
 });
 
-//Инициализация слайдеров с описанием дней для каждого тура
-var slidertabsDays = document.querySelectorAll(".program__days-tabs");
-slidertabsDays.forEach (function(index, element){
-  var $this = this;
-  var swiper = new Swiper($this,{
-    slidesPerView: 'auto',
-    slideToClickedSlide: true,
-    freeModeSticky: true,
-    slideClass: 'program__days-tabs-slide',
-  });
-});
+toursTabs.init();
+tours.init();
