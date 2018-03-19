@@ -1,0 +1,43 @@
+.logo {
+  display: none;
+}
+.logo-text {
+  margin: 0;
+  font: 400 14px/18px $font-roboto;
+  color: $white;
+  width: 240px;
+  text-transform: lowercase;
+  span {
+    text-transform: capitalize;
+  }
+
+}
+@media #{$mobile-widths} {
+  .logo-text {
+    width: 300px;
+  }
+}
+@media #{$tablet-widths} {
+  .logo-text {
+    width: 300px;
+  }
+}
+@media #{$desktop-widths} {
+  .logo {
+    display: flex;
+    align-items: center;
+    width: 372px;
+
+  }
+  & img{
+    margin-right: 36px;
+  }
+  .logo-text {
+    font: 400 16px/24px $font-roboto;
+    text-transform: capitalize;
+    & span {
+      display: none;
+    }
+  }
+
+}

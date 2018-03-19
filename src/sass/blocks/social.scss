@@ -1,0 +1,32 @@
+.social {
+  display: none;
+}
+@media #{$desktop-widths} {
+  .social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .social__item {
+    list-style: none;
+  }
+  .social__link {
+    text-decoration: none;
+    margin-left: 15px;
+    margin-right: 3px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &--vk {
+      background-image: url("../img/vk-white.svg");
+    }
+    &--instagram {
+      background-image: url("../img/instagram-white.svg");
+    }
+  }
+
+}

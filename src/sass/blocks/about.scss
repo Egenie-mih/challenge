@@ -1,0 +1,83 @@
+.about {
+  padding-top: 70px;
+  padding-bottom: 53px;
+}
+.about__container {
+  @include container();
+}
+.about__title {
+  font: 900 24px/32px $font-roboto;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.about p {
+  font: 400 16px/24px $font-roboto;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.about__first-challenge {
+  margin-top: 30px;
+  letter-spacing: 0.4px;
+  font: 900 18px/26px $font-roboto;
+  display: block;
+}
+.about__place {
+  letter-spacing: 0.4px;
+  font: 900 18px/26px $font-roboto;
+  color: $red;
+  display: block;
+}
+.about__image {
+  display: none;
+}
+
+@media #{$tablet-widths} {
+  .about__text {
+    width: 488px;
+    margin: 0 auto;
+
+  }
+}
+
+@media #{$desktop-widths} {
+  .about {
+    padding-top: 40px;
+  }
+  .about__container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .about__text {
+    width: 488px;
+    margin: 0;
+    padding-top: 38px;
+    padding-left: 104px;
+    letter-spacing: 0.4px;
+  }
+  .about__title {
+    margin-bottom: 22px;
+    font: 900 36px/44px $font-roboto;
+  }
+  .about p{
+    font: 400 16px/24px $font-roboto;
+  }
+  .about__first-challenge {
+    font: 900 24px/32px $font-roboto;
+  }
+  .about__place {
+    font: 900 24px/32px $font-roboto;
+  }
+  .about__image {
+    display: block;
+    width: 520px;
+    margin-right: 72px;
+    & img {
+      width: 520px;
+      height: auto;
+      box-shadow: 0 5px 5px 0 $gray;
+    }
+  }
+}

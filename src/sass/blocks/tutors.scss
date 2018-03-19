@@ -1,0 +1,109 @@
+.tutors {
+  background-color: $gray;
+  padding: 60px 0 56px;
+}
+.tutors__container{
+  @include container();
+}
+.tutors__title {
+  margin-top: 0;
+  margin-bottom: 37px;
+  font: 900 24px/32px $font-roboto;
+  text-align: center;
+  width: 100%;
+}
+.tutors__list {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tutors__item {
+  width: 208px;
+  background-color: $white;
+  border-radius: 10px;
+  padding: 24px;
+  cursor: pointer;
+  padding-bottom: 28px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  text-align: center;
+  box-shadow: 0px 5px 10px 0 rgba($black, 0.05);
+}
+.tutors__img {
+  margin-bottom: 20px;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  margin: 0 auto;
+  img {
+    width: 160px;
+    height: 160px;
+  }
+}
+.tutors__name {
+  font: 900 16px/24px $font-roboto;
+  color: $red;
+  margin: 0;
+}
+.tutors__bio {
+  display: none;
+}
+@media #{$mobile-widths} {
+  .tutors__list {
+    justify-content: space-between;
+  }
+}
+@media #{$tablet-widths} {
+  .tutors__list {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+  }
+
+  .tutors__list::-webkit-scrollbar { display: none; height:0px; width: 0;background: transparent;}
+
+  .tutors__item {
+    width: 280px;
+    padding: 32px 16px 48px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .tutors__name {
+    font: 900 24px/32px $font-roboto;
+    margin-bottom: 24px;
+  }
+  .tutors__bio {
+    display: block;
+    font: 400 16px/24px $font-roboto;
+    margin: 0;
+  }
+}
+
+@media #{$desktop-widths} {
+  .tutors {
+    padding-top: 73px;
+    padding-bottom: 100px;
+  }
+  .tutors__title {
+    font: 900 36px/44px $font-roboto;
+    margin-bottom: 57px;
+  }
+  .tutors__item {
+    margin-right: 32px;
+    min-height: 408px;
+  }
+  .tutors__img {
+    margin-bottom: 25px;
+  }
+  .tutors__name {
+    margin-bottom: 17px;
+  }
+}

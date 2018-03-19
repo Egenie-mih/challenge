@@ -1,0 +1,27 @@
+section.connect
+  .connect__container
+    .connect__text
+      h2.connect__title У вас еще остались вопросы?
+      p Это ненадолго! 
+      p Оставьте свои контакты, и&nbsp;мы свяжемся с&nbsp;вами, чтобы&nbsp;все подробно рассказать.
+    .connect__form
+      form
+        .connect__person
+          .connect__person-type
+            input(type="radio" id="parent" name="person-type" checked)
+            label(for="parent") Я — родитель
+          .connect__person-type
+            input(type="radio" id="child" name="person-type")
+            label(for="child") Я — подросток
+        input(type="text" placeholder="ФИО" required name="name")
+        input(type="text" placeholder="Телефон" required name="phone")
+        input(type="text" placeholder="E-mail" required name="mail")
+        button(type="button").connect__comment-btn + Добавить комментарий
+        textarea(name="comment" id="comment" rows="6" cols="40" placeholder="Ваш комментарий")
+        .connect__agreement
+          input(type="checkbox" id="policy")
+          label(for="policy") Я согласен с условиями оферты и политикой конфиденциальности
+        .connect__agreement
+          input(type="checkbox" id="subscribe")
+          label(for="subscribe") Я хочу получать письма с анонсами мероприятий и выездов проекта
+        button(type="submit").connect__submit-btn Отправить

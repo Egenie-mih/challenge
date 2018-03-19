@@ -1,0 +1,26 @@
+.questions-popup
+  .questions-popup__block
+    button(type="button").questions-popup__button-close Закрыть
+    span.questions-popup__title Как с вами связаться?
+      
+    .questions-popup__form
+      form
+        .questions-popup__person
+          .questions-popup__person-type
+            input(type="radio" id="questions-parent" name="person-type" checked)
+            label(for="questions-parent") Я — родитель
+          .questions-popup__person-type
+            input(type="radio" id="questions-child" name="person-type")
+            label(for="questions-child") Я — подросток
+        input(type="text" placeholder="ФИО" required name="questions-name")
+        input(type="text" placeholder="Телефон" required name="questions-phone")
+        input(type="text" placeholder="E-mail" required name="questions-mail")
+        button(type="button").questions-popup__comment-btn + Добавить комментарий
+        textarea(name="questions-comment" id="questions-comment" rows="6" cols="40" placeholder="Ваш комментарий")
+        .questions-popup__agreement
+          input(type="checkbox" id="questions-policy")
+          label(for="questions-policy") Я согласен с условиями оферты и политикой конфиденциальности
+        .questions-popup__agreement
+          input(type="checkbox" id="questions-subscribe")
+          label(for="questions-subscribe") Я хочу получать письма с анонсами мероприятий и выездов проекта
+        button(type="submit").questions-popup__submit-btn Отправить

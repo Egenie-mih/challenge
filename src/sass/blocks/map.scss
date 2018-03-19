@@ -1,0 +1,16 @@
+.map
+{
+  display: none;
+
+}
+@media #{$desktop-widths} {
+  .map {
+    display: block;
+    height: 455px;
+    &--no-js {
+      background-image: url("../img/map.jpg");
+      background-repeat: no-repeat;
+      background-size: center;
+    }
+  }
+}

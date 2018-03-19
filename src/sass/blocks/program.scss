@@ -1,0 +1,184 @@
+.program {
+  background: url("../img/logo_white-transparent.png"), linear-gradient(to bottom, #1e1514 0%,$mine-shaft 100%);
+  padding: 58px 0 65px;
+  background-repeat: no-repeat;
+  background-position: center 136px, center;
+  color: $white;
+  @media #{$desktop-widths} {
+    padding-top: 52px;
+    padding-bottom: 102px;
+  }
+}
+.program__title {
+  margin-top: 0;
+  margin-bottom: 19px;
+  font: 900 24px/32px $font-roboto;
+  text-align: center;
+  color: $white;
+  width: 100%;
+  @media #{$desktop-widths} {
+    margin-bottom: 15px;
+    font: 900 36px/44px $font-roboto;
+  }
+}
+.program__days-tabs {
+  margin: 0 auto;
+  margin-bottom: 58px;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  overflow-x: scroll;
+  box-shadow: inset 0 -2px 0 0  rgba($white, 0.2);
+
+
+
+  @media #{$mobile-small-widths-only}
+  {
+      width: 300px;
+  }
+  @media #{$mobile-widths}
+  {
+      width: 424px;
+  }
+
+  @media #{$tablet-widths}
+  {
+      width: 744px;
+  }
+
+  @media #{$desktop-widths}
+  {
+      width: 1216px;
+      margin-bottom: 77px;
+
+
+  }
+  &-slide {
+    padding: 15px 10px 20px;
+    color: rgba($white, 0.7);
+    cursor: pointer;
+    position: relative;
+    margin: 0 20px;
+    flex-shrink: 0;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      box-shadow: inset 0 0 0 0 transparent;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        border-radius: 2px;
+        width: 100%;
+        background-color: rgba($white, 0.5);
+      }
+    }
+    &--current {
+      color: rgba($white, 1);
+      box-shadow: inset 0 0 0 0 transparent;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        border-radius: 2px;
+        width: 100%;
+        background-color: $red;
+      }
+      &:hover{
+        &:after {
+          background-color: $red;
+        }
+      }
+    }
+  }
+  &-number,
+  &-name {
+    display: block;
+    font: 400 14px/18px $font-roboto;
+    @media #{$desktop-widths} {
+      font: 400 16px/24px $font-roboto;
+    }
+  }
+}
+.program__days-content {
+  &-slide {
+    display: none;
+    &--current {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 0 auto;
+      padding-right: 28px;
+      padding-left: 28px;
+      width: 424px;
+      @media #{$tablet-widths} {
+        width: 488px;
+      }
+      @media #{$desktop-widths} {
+        width: 1072px;
+        padding-right: 0;
+        padding-left: 32px;
+        box-sizing: border-box;
+
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+  &-text {
+    @media #{$desktop-widths} {
+      width: 460px;
+      padding-top: 15px;
+    }
+  }
+  &-title,
+  & h4 {
+    font: 900 18px/26px $font-roboto;
+    margin-bottom: 33px;
+    margin-top: 0;
+    width: 100%;
+    @media #{$desktop-widths} {
+      font: 900 24px/32px $font-roboto;
+    }
+  }
+  & p {
+    margin-bottom: 24px;
+    margin-top: 0;
+    font: 400 16px/24px $font-roboto;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-participate {
+    @include button();
+    margin: 0 auto;
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 0;
+    @media #{$desktop-widths} {
+      margin: 0;
+      margin-top: 47px;
+    }
+  }
+  &-number,
+  &-name {
+    display: block;
+  }
+  & img {
+    display: none;
+    @media #{$desktop-widths} {
+      display: block;
+      margin-right: 0;
+
+    }
+  }
+}

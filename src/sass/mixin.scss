@@ -1,0 +1,88 @@
+@mixin container()
+{
+    margin: 0 auto;
+
+    @media #{$mobile-small-widths-only}
+    {
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 300px;
+    }
+
+
+    @media #{$mobile-widths}
+    {
+        padding-right: 28px;
+        padding-left: 28px;
+        width: 424px;
+    }
+
+    @media #{$tablet-widths}
+    {
+        width: 744px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    @media #{$desktop-widths}
+    {
+        width: 1216px;
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+}
+@mixin link() {
+  font: 900 16px/24px $font-roboto;
+  display: inline-block;
+  color: $red;
+  text-decoration: none;
+  padding-bottom: 1px;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border-bottom: 1px solid $red;
+  &:hover {
+    color: $red-hover;
+    border-color: $red-hover;
+  }
+  &:active {
+    color: $red-active;
+    border-color: $red-active;
+  }
+  &[disabled=disabled],
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+@mixin button() {
+  display: inline-block;
+  margin-bottom: 24px;
+  font: 900 16px/24px $font-roboto;
+  color: $white;
+  text-decoration: none;
+  width: 280px;
+  border-radius: 28px;
+  padding: 16px;
+  box-sizing: border-box;
+  height: 56px;
+  background-color: $red;
+  border: 0;
+  outline: 0;
+  transition: all, .35s;
+  cursor: pointer;
+  background: linear-gradient(to right, $red 0%,$dark-red 100%);
+  &:hover {
+    background: $red;
+    transition: all, .35s;
+  }
+  &:active {
+    background: $dark-red;
+    transition: all, .35s;
+  }
+  @media #{$desktop-widths} {
+    font: 900 18px/26px $font-roboto;
+  }
+}

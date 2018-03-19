@@ -1,0 +1,449 @@
+.participate-popup {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: opacity .15s linear;
+  opacity: 0;
+  background-color: $light-gray;
+  &--show {
+    display: block;
+    opacity: 1;
+  }
+}
+.participate-popup__block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 300px;
+  margin: 0 auto;
+  padding: 50px 10px;
+  @media #{$mobile-widths}{
+    width: 424px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+.participate-popup__button-close {
+  border-radius: 50%;
+  border: 2px solid $black;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  background-color: transparent;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 2px;
+    height: 20px;
+    content: '';
+    background-color: $black;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+.participate-popup__level {
+  display: block;
+  font: 400 18px/26px $font-roboto;
+  margin-bottom: 20px;
+}
+.participate-popup__name {
+  display: block;
+  margin-bottom: 50px;
+  width: 352px;
+  font: 900 36px/44px $font-roboto;
+}
+.participate-popup__theme {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  &-name {
+    width: 136px;
+    font: 400 18px/26px $font-roboto;
+  }
+  &-value {
+    width: 280px;
+    font: 900 18px/26px $font-roboto;
+  }
+}
+.participate-popup__days {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  &-name {
+    width: 136px;
+    font: 400 18px/26px $font-roboto;
+  }
+  &-value {
+    width: 280px;
+    font: 900 18px/26px $font-roboto;
+  }
+}
+.participate-popup__price {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  &-name {
+    width: 136px;
+    font: 400 18px/26px $font-roboto;
+  }
+  &-text {
+    width: 240px;
+    @media #{$mobile-widths}{
+      width: 280px;
+    }
+  }
+  &-value {
+
+    font: 900 24px/32px $font-roboto;
+    display: block;
+    margin-bottom: 10px;
+  }
+  &-include {
+    font: 400 14px/18px $font-roboto;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  &-train {
+    font: 400 14px/18px $font-roboto;
+    margin-top: 0;
+    &-value {
+      font-weight: 900;
+    }
+  }
+}
+.participate-popup__form {
+  padding: 60px 0px 0;
+  &-title {
+    font: 900 24px/32px $font-roboto;
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  & form{
+    width: 384px;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  & input[type="text"] {
+    width: 100%;
+    display: block;
+    height: 40px;
+    border-radius: 10px;
+    font: 400 16px/24px $font-roboto;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
+    border: 0;
+    padding: 0 15px 0 42px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    outline: none;
+    color: $black;
+    &::-webkit-input-placeholder
+    {
+        color: #878787;
+    }
+    &:-ms-input-placeholder
+    {
+        color: #878787;
+    }
+    &::-ms-input-placeholder
+    {
+        color: #878787;
+    }
+    &::-moz-placeholder
+    {
+        color: #878787;
+    }
+    &::placeholder
+    {
+        color: #878787;
+    }
+    &:hover {
+      &::-webkit-input-placeholder
+      {
+          color: $black;
+      }
+      &:-ms-input-placeholder
+      {
+          color: $black;
+      }
+      &::-ms-input-placeholder
+      {
+          color: $black;
+      }
+      &::-moz-placeholder
+      {
+          color: $black;
+      }
+      &::placeholder
+      {
+          color: $black;
+      }
+    }
+    &:disabled {
+      box-shadow: 0 0 0 0 transparent;
+      background-color: $light-gray;
+      &::-webkit-input-placeholder
+      {
+          color: #878787;
+      }
+      &:-ms-input-placeholder
+      {
+          color: #878787;
+      }
+      &::-ms-input-placeholder
+      {
+          color: #878787;
+      }
+      &::-moz-placeholder
+      {
+          color: #878787;
+      }
+      &::placeholder
+      {
+          color: #878787;
+      }
+    }
+  }
+  & input[name="participate-child-name"] {
+    margin-top: 25px;
+  }
+  & textarea {
+    width: 100%;
+    display: block;
+    height: 96px;
+    resize: none;
+    margin-bottom: 32px;
+    border-radius: 10px;
+    font: 400 16px/24px $font-roboto;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
+    border: 0;
+    padding: 10px 15px 10px 42px;
+    box-sizing: border-box;
+    outline: none;
+    &.participate-popup__form-textarea--hide {
+      display: none;
+    }
+    &.participate-popup__form-textarea--show {
+      display: block;
+    }
+    &::-webkit-input-placeholder
+    {
+        color: #878787;
+    }
+    &:-ms-input-placeholder
+    {
+        color: #878787;
+    }
+    &::-ms-input-placeholder
+    {
+        color: #878787;
+    }
+    &::-moz-placeholder
+    {
+        color: #878787;
+    }
+    &::placeholder
+    {
+        color: #878787;
+    }
+    &:hover {
+      &::-webkit-input-placeholder
+      {
+          color: $black;
+      }
+      &:-ms-input-placeholder
+      {
+          color: $black;
+      }
+      &::-ms-input-placeholder
+      {
+          color: $black;
+      }
+      &::-moz-placeholder
+      {
+          color: $black;
+      }
+      &::placeholder
+      {
+          color: $black;
+      }
+    }
+    &:disabled {
+      box-shadow: 0 0 0 0 transparent;
+      background-color: $light-gray;
+      &::-webkit-input-placeholder
+      {
+          color: #878787;
+      }
+      &:-ms-input-placeholder
+      {
+          color: #878787;
+      }
+      &::-ms-input-placeholder
+      {
+          color: #878787;
+      }
+      &::-moz-placeholder
+      {
+          color: #878787;
+      }
+      &::placeholder
+      {
+          color: #878787;
+      }
+    }
+  }
+}
+
+.participate-popup__comment-btn {
+
+  @include link();
+  width: 196px;
+  margin: 27px auto;
+  display: block;
+  &--hide {
+    display: none;
+  }
+}
+.participate-popup__agreement {
+  margin-bottom: 10px;
+  width: 306px;
+  margin: 0 auto;
+  & input[type="checkbox"] {
+    display: none;
+  }
+  & input[type='checkbox']:checked + label {
+    opacity: 1;
+  }
+  & input[type='checkbox']:checked + label::before
+  {
+      background-image: url('../img/click.png');
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+  & input[type='checkbox']:disabled + label {
+    opacity: 0.5;
+  }
+  & input[type='checkbox']:disabled + label:hover {
+    opacity: 0.5;
+  }
+  & input[type='checkbox'] + label {
+    padding-left: 40px;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.85;
+    display: block;
+    box-sizing: border-box;
+    &::before {
+      position: absolute;
+      top: 6px;
+      left: 0px;
+
+      width: 24px;
+      height: 24px;
+
+      content: '';
+
+      box-shadow: 0 0 0 1px $black;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.participate-popup__submit-btn {
+  display: block;
+  font: 900 18px/26px $font-roboto;
+  color: $white;
+  text-decoration: none;
+  width: 280px;
+  border-radius: 28px;
+  padding: 16px;
+  box-sizing: border-box;
+  height: 56px;
+  background-color: $red;
+  margin: 0 auto;
+  margin-top: 22px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+@media #{$tablet-widths} {
+
+  .participate-popup__block {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 680px;
+  }
+  .participate-popup__level,
+  .participate-popup__name {
+    width: 100%;
+    padding-right: 60px;
+    box-sizing: border-box;
+  }
+  .participate-popup__description {
+    width: 256px;
+    order: 2;
+  }
+  .participate-popup__form {
+    width: 384px;
+    order: 1;
+    padding: 0;
+  }
+  .participate-popup__theme,
+  .participate-popup__days,
+  .participate-popup__price {
+    flex-direction: column;
+  }
+  .participate-popup__theme {
+    margin-bottom: 30px;
+  }
+  .participate-popup__form-title {
+    display: none;
+  }
+  .participate-popup__price-text {
+    width: 246px;
+  }
+
+
+
+}

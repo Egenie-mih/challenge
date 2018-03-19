@@ -1,0 +1,33 @@
+// COMMON
+@import 'global/normalize.scss';
+@import 'global/fonts.scss';
+
+@import 'variables.scss';
+@import 'mixin.scss';
+
+@import 'global/global.scss';
+
+// INCLUDES
+@import 'blocks/page-header';
+@import 'blocks/page-footer';
+@import 'blocks/logo';
+@import 'blocks/social';
+@import 'blocks/promo';
+@import 'blocks/main-nav';
+@import 'blocks/show-main-nav';
+@import 'blocks/about';
+@import 'blocks/contacts';
+@import 'blocks/connect';
+@import 'blocks/participate';
+@import 'blocks/participate-popup';
+@import 'blocks/photos';
+@import 'blocks/tutors';
+@import 'blocks/tutors-popup';
+@import 'blocks/tours';
+@import 'blocks/questions';
+@import 'blocks/questions-popup';
+@import 'blocks/results';
+@import 'blocks/results-popup';
+@import 'blocks/tour-topic';
+@import 'blocks/program';
+@import 'blocks/map';

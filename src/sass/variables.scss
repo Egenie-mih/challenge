@@ -1,0 +1,30 @@
+// POINTS
+$mobile-small-widths-only: '(max-width: 479px)';
+$mobile-widths: '(min-width:480px) and (max-width: 767px)';
+$mobile-widths-only: '(max-width: 787px)';
+$tablet-widths-only: '(min-width: 768px) and (max-width: 1280px)';
+$mobile-tablet-widths-only: '(max-width: 1280px)';
+$tablet-widths: '(min-width: 768px)';
+$desktop-widths: '(min-width: 1280px)';
+
+// FONTS
+$font-roboto: 'Roboto', 'Arial', sans-serif;
+
+// FONT COLORS
+$white: #fff;
+$black: #000;
+$light-gray: #fafafa;
+$gray: #f3f3f3;
+$gray-hover: #ededed;
+$dark-gray: #373737;
+$mine-shaft: #242424;
+$cod-gray: #211d1c;
+$red: #ec4417;
+$dark-red: #bc2a13;
+$red-active: #dd4016;
+$red-hover: #ff4919;
+
+// BACKGROUND COLORS
+$bg-white: #fff;
+$bg-graywhite: #f2f2f2;
+$bg-gray: #b3b3b3;
