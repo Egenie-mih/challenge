@@ -4,6 +4,9 @@
   margin: 0 auto;
   text-align: center;
   color: $white;
+  position: relative;
+  z-index: 3;
+
 }
 .promo__slogan {
   font: 900 54px/62px $font-roboto;

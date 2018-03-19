@@ -118,5 +118,20 @@ var tours = {
     }
 }
 
+var tabsDays = document.querySelectorAll('.program__days-tabs-slide')
+Array.from(tabsDays).forEach(function(link) {
+  link.addEventListener('click', function(){
+    var tab_id = this.getAttribute('data-tab');
+
+    var activeTab = this.parentNode.querySelector('.program__days-tabs-slide--current');
+    activeTab.classList.remove('program__days-tabs-slide--current');
+    var activeSlide = this.parentNode.parentNode.parentNode.querySelector('.program__days-content-slide--current');
+    activeSlide.classList.remove('program__days-content-slide--current');
+
+    this.classList.add('program__days-tabs-slide--current');
+    document.querySelector("#"+tab_id).classList.add('program__days-content-slide--current');
+  });
+});
+
 toursTabs.init();
 tours.init();

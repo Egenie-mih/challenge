@@ -116,24 +116,18 @@
     display: block;
   }
 }
-.tutors-popup__button-prev  {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10000;
+.tutors-popup__button-next,
+.tutors-popup__button-prev {
+  display: none;
 }
-.tutors-popup__button-next {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  z-index: 10000;
-}
+
 
 @media #{$tablet-widths} {
   .tutors-popup__button-next,
   .tutors-popup__button-prev {
     display: block;
     position: absolute;
+    cursor: pointer;
     top: 290px;
     bottom: 0;
     background-color: transparent;

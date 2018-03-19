@@ -1,27 +1,26 @@
 section.topic-program(id="programs")
-  .topic-program__tabs.swiper-container
-    .swiper-wrapper
-      .swiper-slide.current.js-tours-tab(id="program1" data-tab="program-content1") 
-        span.topic-program__tabs-place Минск,
-        span.topic-program__tabs-date 24.01 — 01.04
-      .swiper-slide.js-tours-tab(id="program2" data-tab="program-content2") 
-        span.topic-program__tabs-place Минск и Брест,
-        span.topic-program__tabs-date 01.07 — 12.07
-      .swiper-slide.js-tours-tab(id="program3" data-tab="program-content3") 
-        span.topic-program__tabs-place Казань и Йошкар-Ола,
-        .topic-program__tabs-date 14.07 — 26.07
-      .swiper-slide.js-tours-tab(id="program4" data-tab="program-content4") 
-        span.topic-program__tabs-place Крым: Трансформация,
-        span.topic-program__tabs-date 06.08 — 21.08
-      .swiper-slide.js-tours-tab(id="program5" data-tab="program-content5") 
-        span.topic-program__tabs-place Поход в Хибины,
-        span.topic-program__tabs-date 16.08 — 27.08
-      .swiper-slide.js-tours-tab(id="program6" data-tab="program-content6") 
-        span.topic-program__tabs-place Минск,
-        span.topic-program__tabs-date 24.06 — 01.04
+  .topic-program__tabs
+    .topic-program__tabs-content.current.js-tours-tab(id="program1" data-tab="program-content1") 
+      span.topic-program__tabs-place Минск,
+      span.topic-program__tabs-date 24.01 — 01.04
+    .topic-program__tabs-content.js-tours-tab(id="program2" data-tab="program-content2") 
+      span.topic-program__tabs-place Минск и Брест,
+      span.topic-program__tabs-date 01.07 — 12.07
+    .topic-program__tabs-content.js-tours-tab(id="program3" data-tab="program-content3") 
+      span.topic-program__tabs-place Казань и Йошкар-Ола,
+      .topic-program__tabs-date 14.07 — 26.07
+    .topic-program__tabs-content.js-tours-tab(id="program4" data-tab="program-content4") 
+      span.topic-program__tabs-place Крым: Трансформация,
+      span.topic-program__tabs-date 06.08 — 21.08
+    .topic-program__tabs-content.js-tours-tab(id="program5" data-tab="program-content5") 
+      span.topic-program__tabs-place Поход в Хибины,
+      span.topic-program__tabs-date 16.08 — 27.08
+    .topic-program__tabs-content.js-tours-tab(id="program6" data-tab="program-content6") 
+      span.topic-program__tabs-place Минск,
+      span.topic-program__tabs-date 24.06 — 01.04
   article.topic-program__content.swiper-container
-    .swiper-wrapper
-      .swiper-slide.js-tours-tab-content.current(id="program-content1")
+    .swiper-wrapper.topic-program__content-list
+      .swiper-slide.topic-program__content-item.js-tours-tab-content.current(id="program-content1")
         section.topic
           .topic__text(id="#pin2")
             h3.topic__text-title 1 Чему будет посвящен выезд в Минск?
@@ -43,7 +42,6 @@ section.topic-program(id="programs")
               .program__days-tabs-slide(data-tab="d3") 
                 span.program__days-tabs-number День 3: 
                 span.program__days-tabs-name Волонтерство
-
             .program__days-content.swiper-container
               .swiper-wrapper
                 .program__days-content-slide.program__days-content-slide--current(id="d1")
@@ -73,7 +71,7 @@ section.topic-program(id="programs")
                     p Участникам предстоит прожить день взрослого успешного человека, в котором будет <b>гармонично сочетаться</b> время на карьеру, хобби, самообразование, спорт и так далее.
                     button(type="button").program__days-content-participate Принять участие
                   img(src="img/photo_4_6.jpg" width="520" height="406")
-      .swiper-slide.js-tours-tab-content(id="program-content2")
+      .swiper-slide.topic-program__content-item.js-tours-tab-content(id="program-content2")
         section.topic
           .topic__text
             h3.topic__text-title 2 Чему будет посвящен выезд в Минск?
@@ -139,7 +137,7 @@ section.topic-program(id="programs")
                   p Участникам предстоит прожить день взрослого успешного человека, в котором будет <b>гармонично сочетаться</b> время на карьеру, хобби, самообразование, спорт и так далее.
                   button(type="button").program__days-content-participate Принять участие
                 img(src="img/photo_4_6.jpg" width="520" height="406")
-      .swiper-slide.js-tours-tab-content(id="program-content3")
+      .swiper-slide.topic-program__content-item.js-tours-tab-content(id="program-content3")
         section.topic
           .topic__text
             h3.topic__text-title 3 Чему будет посвящен выезд в Минск?
@@ -190,7 +188,7 @@ section.topic-program(id="programs")
                   p Участникам предстоит прожить день взрослого успешного человека, в котором будет <b>гармонично сочетаться</b> время на карьеру, хобби, самообразование, спорт и так далее.
                   button(type="button").program__days-content-participate Принять участие
                 img(src="img/photo_4_6.jpg" width="520" height="406")
-      .swiper-slide.js-tours-tab-content(id="program-content4")
+      .swiper-slide.topic-program__content-item.js-tours-tab-content(id="program-content4")
         section.topic
           .topic__text
             h3.topic__text-title 4 Чему будет посвящен выезд в Минск?
@@ -241,7 +239,7 @@ section.topic-program(id="programs")
                   p Участникам предстоит прожить день взрослого успешного человека, в котором будет <b>гармонично сочетаться</b> время на карьеру, хобби, самообразование, спорт и так далее.
                   button(type="button").program__days-content-participate Принять участие
                 img(src="img/photo_4_6.jpg" width="520" height="406")
-      .swiper-slide.js-tours-tab-content(id="program-content5")
+      .swiper-slide.topic-program__content-item.js-tours-tab-content(id="program-content5")
         section.topic
           .topic__text
             h3.topic__text-title 5 Чему будет посвящен выезд в Минск?
@@ -292,7 +290,7 @@ section.topic-program(id="programs")
                   p Участникам предстоит прожить день взрослого успешного человека, в котором будет <b>гармонично сочетаться</b> время на карьеру, хобби, самообразование, спорт и так далее.
                   button(type="button").program__days-content-participate Принять участие
                 img(src="img/photo_4_6.jpg" width="520" height="406")
-      .swiper-slide.js-tours-tab-content(id="program-content6")
+      .swiper-slide.topic-program__content-item.js-tours-tab-content(id="program-content6")
         section.topic
           .topic__text
             h3.topic__text-title 6 Чему будет посвящен выезд в Минск?

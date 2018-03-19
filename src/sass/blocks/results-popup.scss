@@ -120,18 +120,7 @@
     }
   }
 }
-.results-popup__button-prev  {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-}
-.results-popup__button-next {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  z-index: 10000;
-}
+
 .results-popup__ask-btn {
   @include button();
   margin-top: 20px;
@@ -142,6 +131,7 @@
   .results-popup__button-prev {
     display: block;
     position: absolute;
+    cursor: pointer;
     top: 290px;
     bottom: 0;
     background-color: transparent;

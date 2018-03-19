@@ -25,11 +25,10 @@ $( document ).ready(function() {
   $('input[name="participate-mail"]').focus(function() {
     $(this).inputmask("email");
   })
+
   lightbox.option({
     'alwaysShowNavOnTouchDevices': true,
   });
-
-  // var headerHeight = $('.page-header').outerHeight();
 
   if (window.location.hash) {
     if ($('.page-header__top').hasClass('page-header__top--whiter')) {
@@ -48,8 +47,6 @@ $( document ).ready(function() {
     return false;
   }
 	function mediaSize() {
-		/* Set the matchMedia */
-
     $(".main-nav__dropdown a").click(function() {
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top
@@ -59,12 +56,9 @@ $( document ).ready(function() {
       });
       return false;
     });
-
-
 	};
   mediaSize();
   window.addEventListener('resize', mediaSize, false);
-
 
   function redrawDotNav(){
     var section1Top =  0;
@@ -163,6 +157,82 @@ $( document ).ready(function() {
       $(".results-popup__button-prev").addClass("results-popup__button-prev--disabled");
     }
   });
+
+  // $(".bank-modal").click(function(e) {
+  //   if($(e.target).closest(".login-bank").length==0 && $(e.target).closest(".registration-bank").length==0) {
+  //     $(".bank-modal").removeClass('bank-modal--show');
+  //     $('body').removeClass('stop-scrolling');
+  //     $('.login-bank').removeClass('login-bank--hide');
+  //     $('.registration-bank').removeClass('registration-bank--show');
+  //   }
+  // });
+  $('.participate-popup__button-close').click(function(e) {
+    $('.participate-popup').removeClass('participate-popup--show');
+    $('body').removeClass('stop-scrolling');
+  });
+  $('.participate-popup').click(function(e) {
+    if($(e.target).closest(".participate-popup__block").length==0) {
+      $('.participate-popup').removeClass('participate-popup--show');
+      $('body').removeClass('stop-scrolling');
+    }
+  });
+  $('.questions-popup__button-close').click(function(e) {
+    $('.questions-popup').removeClass('questions-popup--show');
+    $('body').removeClass('stop-scrolling');
+  });
+  $('.questions-popup').click(function(e) {
+    if($(e.target).closest(".questions-popup__block").length==0 && $(e.target).closest(".questions-popup__button-prev").length==0 && $(e.target).closest(".questions-popup__button-next").length==0) {
+      $('.questions-popup').removeClass('questions-popup--show');
+      $('body').removeClass('stop-scrolling');
+    }
+  });
+
+  $('.tutors-popup__button-close').click(function(e) {
+    $('.tutors-popup').removeClass('tutors-popup--show');
+    $('body').removeClass('stop-scrolling');
+    $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
+    if($(".tutors-popup__button-prev--disabled")) {
+      $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
+    } else {
+      $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
+    }
+  });
+  $('.tutors-popup').click(function(e) {
+    if($(e.target).closest(".tutors-popup__block").length==0 && $(e.target).closest(".tutors-popup__button-prev").length==0 && $(e.target).closest(".tutors-popup__button-next").length==0) {
+      $('.tutors-popup').removeClass('tutors-popup--show');
+      $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
+      $('body').removeClass('stop-scrolling');
+      if($(".tutors-popup__button-prev--disabled")) {
+        $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
+      } else {
+        $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
+      }
+    }
+  });
+
+  $('.results-popup__button-close').click(function(e) {
+    $('.results-popup').removeClass('results-popup--show');
+    $('body').removeClass('stop-scrolling');
+    $('.results-popup__block--current').removeClass('results-popup__block--current');
+    if($(".results-popup__button-prev--disabled")) {
+      $('.results-popup__button-prev--disabled').removeClass('results-popup__button-prev--disabled');
+    } else {
+      $('.results-popup__button-next--disabled').removeClass('results-popup__button-next--disabled');
+    }
+  });
+  $('.results-popup').click(function(e) {
+    if($(e.target).closest(".results-popup__block").length==0 && $(e.target).closest(".results-popup__button-prev").length==0 && $(e.target).closest(".results-popup__button-next").length==0) {
+      $('.results-popup').removeClass('results-popup--show');
+      $('.results-popup__block--current').removeClass('results-popup__block--current');
+      $('body').removeClass('stop-scrolling');
+      if($(".results-popup__button-prev--disabled")) {
+        $('.results-popup__button-prev--disabled').removeClass('results-popup__button-prev--disabled');
+      } else {
+        $('.results-popup__button-next--disabled').removeClass('results-popup__button-next--disabled');
+      }
+    }
+  });
+
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -224,11 +294,6 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector('body').classList.add('stop-scrolling');
     });
   });
-
-  document.querySelector('.participate-popup__button-close').addEventListener('click', function(){
-    popupOverlay.classList.remove('participate-popup--show');
-    document.querySelector('body').classList.remove('stop-scrolling');
-  });
   // Доделать клик вне блока
   // popupOverlay.addEventListener('click', function(evt){
   //   evt.preventDefault();
@@ -258,10 +323,7 @@ document.addEventListener('DOMContentLoaded', function(){
     popupConnect.classList.add('questions-popup--show');
     document.querySelector('body').classList.add('stop-scrolling');
   });
-  document.querySelector('.questions-popup__button-close').addEventListener('click', function(){
-    popupConnect.classList.remove('questions-popup--show');
-    document.querySelector('body').classList.remove('stop-scrolling');
-  });
+
   window.addEventListener("keydown", function(e) {
     if (e.keyCode === 27) {
       if (popupConnect.classList.contains("questions-popup--show")) {
@@ -345,25 +407,20 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector('.tutors-popup').classList.add('tutors-popup--show');
         document.querySelector('body').classList.add('stop-scrolling');
         document.querySelector("#"+tab_id).classList.add('tutors-popup__block--current');
-
     });
   });
-  document.querySelector('.tutors-popup__button-close').addEventListener('click', function(){
-    document.querySelector('.tutors-popup').classList.remove('tutors-popup--show');
-    document.querySelector('body').classList.remove('stop-scrolling');
-    document.querySelector('.tutors-popup__block--current').classList.remove('tutors-popup__block--current');
-    document.querySelector('.tutors-popup__button-prev--disabled').classList.remove('tutors-popup__button-prev--disabled');
-    document.querySelector('.tutors-popup__button-next--disabled').classList.remove('tutors-popup__button-next--disabled');
 
-  });
   window.addEventListener("keydown", function(e) {
     if (e.keyCode === 27) {
       if (document.querySelector('.tutors-popup').classList.contains("tutors-popup--show")) {
         document.querySelector('body').classList.remove("stop-scrolling");
         document.querySelector('.tutors-popup').classList.remove("tutors-popup--show");
         document.querySelector('.tutors-popup__block--current').classList.remove('tutors-popup__block--current');
-        document.querySelector('.tutors-popup__button-prev--disabled').classList.remove('tutors-popup__button-prev--disabled');
-        document.querySelector('.tutors-popup__button-next--disabled').classList.remove('tutors-popup__button-next--disabled');
+        if (document.querySelector('.tutors-popup__button-prev--disabled')) {
+          document.querySelector('.tutors-popup__button-prev--disabled').classList.remove('tutors-popup__button-prev--disabled');
+        } else if (document.querySelector('.tutors-popup__button-next--disabled')){
+          document.querySelector('.tutors-popup__button-next--disabled').classList.remove('tutors-popup__button-next--disabled');
+        }
       }
     }
   });
@@ -385,23 +442,18 @@ document.addEventListener('DOMContentLoaded', function(){
       document.querySelector("#"+tab_id).classList.add('results-popup__block--current');
     });
   });
-  document.querySelector('.results-popup__button-close').addEventListener('click', function(){
-    document.querySelector('.results-popup').classList.remove('results-popup--show');
-    document.querySelector('body').classList.remove('stop-scrolling');
-    // document.querySelectorAll('.results__item').classList.remove("results-popup__block--current");
-    document.querySelector('.results-popup__block--current').classList.remove("results-popup__block--current");
-    document.querySelector('.results-popup__button-prev--disabled').classList.remove('results-popup__button-prev--disabled');
-    document.querySelector('.results-popup__button-next--disabled').classList.remove('results-popup__button-next--disabled');
-  });
+
   window.addEventListener("keydown", function(e) {
     if (e.keyCode === 27) {
       if (document.querySelector('.results-popup').classList.contains("results-popup--show")) {
         document.querySelector('body').classList.remove("stop-scrolling");
         document.querySelector('.results-popup').classList.remove("results-popup--show");
         document.querySelector('.results-popup__block--current').classList.remove("results-popup__block--current");
-        document.querySelector('.results-popup__button-prev--disabled').classList.remove('results-popup__button-prev--disabled');
-        document.querySelector('.results-popup__button-next--disabled').classList.remove('results-popup__button-next--disabled');
-      }
+        if (document.querySelector('.results-popup__button-prev--disabled')) {
+          document.querySelector('.results-popup__button-prev--disabled').classList.remove('results-popup__button-prev--disabled');
+        } else if (document.querySelector('.results-popup__button-next--disabled')){
+          document.querySelector('.results-popup__button-next--disabled').classList.remove('results-popup__button-next--disabled');
+        }      }
     }
   });
   //В форме показать комментарий
