@@ -30,7 +30,12 @@
     width: 424px;
     padding: 100px 28px 50px;
   }
+  @media #{$tablet-widths} {
+    width: 680px;
+    padding: 100px 10px 50px;
+  }
 }
+
 .questions-popup__button-close {
   border-radius: 50%;
   border: 2px solid $black;
@@ -63,6 +68,9 @@
   }
   &:after {
     transform: rotate(-45deg);
+  }
+  @media #{$tablet-widths} {
+    right: 0;
   }
 }
 .questions-popup__title {
