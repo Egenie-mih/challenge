@@ -1,5 +1,24 @@
 $( document ).ready(function() {
 
+  // $(".topic__images").paroller({
+  //      factor: -0.3,            // multiplier for scrolling speed and offset
+  //      type: 'foreground',     // background, foreground
+  //      direction: 'vertical' // vertical, horizontal
+  // });
+  // $(".topic__text").paroller({
+  //      factor: 0.2,            // multiplier for scrolling speed and offset
+  //      type: 'foreground',     // background, foreground
+  //      direction: 'vertical' // vertical, horizontal
+  // });
+  $('.results__item').hover(function(){
+    $(this).addClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", ".8");
+  });
+  $('.results__item').mouseleave(function(){
+    $(this).removeClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", "1");
+  });
+
 
   $('input[name="name"]').focus(function() {
     $(this).inputmask("А-Яа-я");
@@ -158,14 +177,6 @@ $( document ).ready(function() {
     }
   });
 
-  // $(".bank-modal").click(function(e) {
-  //   if($(e.target).closest(".login-bank").length==0 && $(e.target).closest(".registration-bank").length==0) {
-  //     $(".bank-modal").removeClass('bank-modal--show');
-  //     $('body').removeClass('stop-scrolling');
-  //     $('.login-bank').removeClass('login-bank--hide');
-  //     $('.registration-bank').removeClass('registration-bank--show');
-  //   }
-  // });
   $('.participate-popup__button-close').click(function(e) {
     $('.participate-popup').removeClass('participate-popup--show');
     $('body').removeClass('stop-scrolling');

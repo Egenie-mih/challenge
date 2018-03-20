@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
   // $(".topic__images").paroller({
   //      factor: -0.3,            // multiplier for scrolling speed and offset
   //      type: 'foreground',     // background, foreground
@@ -11,6 +10,14 @@ $( document ).ready(function() {
   //      type: 'foreground',     // background, foreground
   //      direction: 'vertical' // vertical, horizontal
   // });
+  $('.results__item').hover(function(){
+    $(this).addClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", ".8");
+  });
+  $('.results__item').mouseleave(function(){
+    $(this).removeClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", "1");
+  });
 
 
   $('input[name="name"]').focus(function() {
