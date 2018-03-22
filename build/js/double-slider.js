@@ -2,6 +2,7 @@ var swiperTours = new Swiper('.tours .swiper-container', {
   spaceBetween: 40,
   slidesPerView: 'auto',
   slideToClickedSlide: true,
+  freeMode: true,
   pagination: {
     el: '.tours .swiper-pagination',
    clickable: true,

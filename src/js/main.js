@@ -48,15 +48,8 @@ $( document ).ready(function() {
   lightbox.option({
     'alwaysShowNavOnTouchDevices': true,
   });
-
+  var headerHeight = $('.page-header__top').outerHeight();
   if (window.location.hash) {
-    if ($('.page-header__top').hasClass('page-header__top--whiter')) {
-      var headerHeight = $('.page-header__top').outerHeight();
-
-    } else {
-      var headerHeight = 0;
-
-    }
     $('html,body').animate({
       scrollTop: $(window.location.hash).offset().top - headerHeight
     }, {
@@ -65,19 +58,53 @@ $( document ).ready(function() {
     });
     return false;
   }
-	function mediaSize() {
+  $(".tours__choose-btn").click(function() {
+
+    $("html, body").animate({
+      scrollTop: $($(this).attr("href")).offset().top - headerHeight
+    }, {
+      duration: 500,
+      easing: "swing"
+    });
+    return false;
+  });
+  $(".promo__participate-btn").click(function() {
+    $("html, body").animate({
+      scrollTop: $($(this).attr("href")).offset().top - headerHeight
+    }, {
+      duration: 500,
+      easing: "swing"
+    });
+    return false;
+  });
+  function mediaSize() {
     $(".main-nav__dropdown a").click(function() {
       $("html, body").animate({
-        scrollTop: $($(this).attr("href")).offset().top
+        scrollTop: $($(this).attr("href")).offset().top - headerHeight
       }, {
         duration: 500,
         easing: "swing"
       });
       return false;
     });
-	};
+  };
   mediaSize();
   window.addEventListener('resize', mediaSize, false);
+
+  function blockScroll() {
+    $(".program__days-tabs-slide").click(function() {
+      var slidePosition = $(this).offset().left;
+      console.log(slidePosition);
+      $(".program__days-tabs").animate({
+        scrollLeft: slidePosition
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    });
+  };
+  blockScroll();
+  // $(".program__days-tabs").addEventListener('scroll', blockScroll, false);
 
   function redrawDotNav(){
     var section1Top =  0;
@@ -117,15 +144,7 @@ $( document ).ready(function() {
   redrawDotNav();
   $(window).bind('scroll',function(e){redrawDotNav();});
 
-  $(".promo__participate-btn").click(function() {
-    $("html, body").animate({
-      scrollTop: $($(this).attr("href")).offset().top + "px"
-    }, {
-      duration: 500,
-      easing: "swing"
-    });
-    return false;
-  });
+
 
   $(".tutors-popup__button-next").on("click", function(){
     var currentImg = $(".tutors-popup__block--current");
@@ -262,6 +281,23 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector(".page-header__top").classList.remove("page-header__top--white");
       }
     }
+  }
+  function addPrevClass (e) {
+    var target = e.target;
+      if(target.getAttribute('href')) {
+        var li = target.parentNode;
+        var prevLi = li.previousElementSibling;
+        if(prevLi) {
+          prevLi.classList.add('main-nav__item-prev');
+        }
+
+        target.addEventListener('mouseout', function() {
+          prevLi.classList.remove('main-nav__item-prev');
+        }, false);
+    }
+  }
+  if (window.addEventListener) {
+    document.querySelector(".main-nav__dropdown").addEventListener('mouseover', addPrevClass, false);
   }
 
   var mainNav = document.querySelector('html');

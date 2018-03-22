@@ -114,13 +114,13 @@
 @media #{$mobile-small-widths-only} {
   .show-main-nav .main-nav a
   {
-    padding: 21px calc((100% - 300px)/2) 20px;
+    padding: 16px calc((100% - 300px)/2) 20px;
   }
 }
 @media #{$mobile-widths} {
   .show-main-nav .main-nav a
   {
-    padding: 21px calc((100% - 424px)/2) 20px;
+    padding: 16px calc((100% - 424px)/2) 20px;
   }
 }
 @media #{$tablet-widths-only} {

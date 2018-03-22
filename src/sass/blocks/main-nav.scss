@@ -70,7 +70,7 @@
     position: fixed;
     z-index: 100;
     right: 10px;
-    height: 238px;
+    height: 166px;
     top: 0;
     bottom: 0;
     margin: auto 0;
@@ -120,8 +120,35 @@
   }
   .main-nav--desktop nav {
 
+    &:hover a {
+      font-size: 14px;
+      width: 220px;
+      height: 20px;
+      padding-right: 16px;
+      padding-left: 20px;
+      background-color: #fff;
+      margin-bottom: 10px;
+      display: inline-block;
+      height: auto;
+      &:hover {
+        width: 250px;
+      }
+    }
+    & li {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    & li:hover + li a,
+    & li.main-nav__item-prev a {
+      width: 235px;
+    }
     & a {
       transition: all 0.35s;
+      -webkit-transition: all 0.3s;
+      -webkit-transform-origin: 50% 100%;
       font-size: 0;
       width: 10px;
       height: 22px;

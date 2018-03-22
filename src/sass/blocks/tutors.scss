@@ -17,13 +17,13 @@
   display: -ms-flex;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 .tutors__item {
-  width: 208px;
+  width: 146px;
   background-color: $white;
   border-radius: 10px;
-  padding: 24px;
+  padding: 10px;
   cursor: pointer;
   padding-bottom: 28px;
   box-sizing: border-box;
@@ -34,13 +34,13 @@
 .tutors__img {
   margin-bottom: 20px;
   border-radius: 50%;
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   margin: 0 auto;
   img {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: 100%;
   }
 }
 .tutors__name {
@@ -52,8 +52,18 @@
   display: none;
 }
 @media #{$mobile-widths} {
-  .tutors__list {
-    justify-content: space-between;
+  .tutors__item {
+    width: 208px;
+    padding: 24px;
+  }
+  .tutors__img {
+    width: 160px;
+    height: 160px;
+    img {
+      width: 160px;
+      height: 160px;
+    }
+
   }
 }
 @media #{$tablet-widths} {
@@ -74,6 +84,14 @@
     margin-bottom: 0;
     &:last-child {
       margin-right: 0;
+    }
+  }
+  .tutors__img {
+    width: 160px;
+    height: 160px;
+    img {
+      width: 160px;
+      height: 160px;
     }
   }
   .tutors__name {
