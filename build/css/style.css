@@ -2551,8 +2551,8 @@ body
     padding: 0;
 
     cursor: pointer;
-    -webkit-transform: translateX(150px);
-            transform: translateX(150px); 
+    -webkit-transform: translateX(110px);
+            transform: translateX(110px); 
 
     border: 2px solid #000;
     border-radius: 50%;
@@ -2593,6 +2593,9 @@ body
     display: -webkit-box;
     display: -ms-flexbox;
     display:     flex;
+        flex-direction: column;
+
+    text-align: center; 
 
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -2600,6 +2603,9 @@ body
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
 }
 
 .tutors-popup__image
@@ -3872,8 +3878,8 @@ body
     padding: 0;
 
     cursor: pointer;
-    -webkit-transform: translateX(150px);
-            transform: translateX(150px); 
+    -webkit-transform: translateX(110px);
+            transform: translateX(110px); 
 
     border: 2px solid #000;
     border-radius: 50%;
@@ -4111,12 +4117,35 @@ body
     background-color: #ec4417;
 }
 
-.topic-program__content .swiper-slide
+.topic-program__content
 {
-    display: none;
+    overflow: hidden;
+
+    margin: 0 auto;
 }
 
-.topic-program__content .swiper-slide.current
+.topic-program__content-list
+{
+    display: -ms-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:     flex; 
+
+    width: 100%;
+    height: 100%;
+}
+
+.topic-program__content-item
+{
+    display: none;
+
+    width: 100%;
+    height: 100%; 
+
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.topic-program__content-item.current
 {
     display: block;
 }
@@ -4401,6 +4430,115 @@ body
     display: none;
 }
 
+.success-popup
+{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition: opacity .15s linear;
+            transition: opacity .15s linear;
+
+    opacity: 0;
+    background-color: #fafafa;
+}
+.success-popup--show
+{
+    display: block;
+
+    opacity: 1;
+}
+
+.success-popup__block
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    width: 300px;
+    margin: 0 auto;
+    padding: 100px 10px;
+
+    text-align: center;
+}
+
+.success-popup__button-close
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    z-index: 10;
+    top: 26px;
+    left: 50%;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    cursor: pointer;
+    -webkit-transform: translateX(120px);
+            transform: translateX(120px); 
+
+    border: 2px solid #000;
+    border-radius: 50%;
+    outline: 0;
+    background-color: transparent;
+}
+.success-popup__button-close:before,
+.success-popup__button-close:after
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 2px;
+    height: 20px;
+    margin: auto;
+
+    content: '';
+
+    background-color: #000;
+}
+.success-popup__button-close:before
+{
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+.success-popup__button-close:after
+{
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+.success-popup__title
+{
+    font: 900 36px/44px 'Roboto', 'Arial', sans-serif;
+
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.success-popup__place
+{
+    font: 400 24px/32px 'Roboto', 'Arial', sans-serif;
+
+    margin-top: 0;
+}
+
 @media (min-width: 480px) and (max-width: 767px)
 {
     .page-header__container
@@ -4498,6 +4636,16 @@ body
         padding-right: 28px; 
         padding-left: 28px;
     }
+    .tutors-popup__top
+    {
+            flex-direction: row;
+
+        text-align: left; 
+
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+    }
     .tours__container
     {
         width: 424px; 
@@ -4547,6 +4695,11 @@ body
         padding-right: 28px; 
         padding-left: 28px;
     }
+    .results-popup__button-close
+    {
+        -webkit-transform: translateX(150px);
+                transform: translateX(150px);
+    }
     .topic-program__tabs
     {
         width: 424px;
@@ -4560,6 +4713,12 @@ body
     .program__days-tabs
     {
         width: 424px;
+    }
+    .success-popup__block
+    {
+        width: 424px;
+        padding-right: 28px; 
+        padding-left: 28px;
     }
 }
 
@@ -4908,6 +5067,11 @@ body
     }
     .tutors-popup__button-close
     {
+        -webkit-transform: translateX(150px);
+                transform: translateX(150px);
+    }
+    .tutors-popup__button-close
+    {
         -webkit-transform: translateX(330px);
                 transform: translateX(330px);
     }
@@ -5242,6 +5406,16 @@ body
     {
         width: 488px;
     }
+    .success-popup__button-close
+    {
+        -webkit-transform: translateX(330px);
+                transform: translateX(330px);
+    }
+    .success-popup__block
+    {
+        width: 616px;
+        padding: 100px 64px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1280px)
@@ -5436,7 +5610,7 @@ body
 
         display: block; 
 
-        height: 166px;
+        height: 228px;
         margin: auto 0;
     }
     .main-nav nav li
@@ -5452,7 +5626,7 @@ body
     }
     .main-nav nav a
     {
-        font: 400 12px/22px 'Roboto', 'Arial', sans-serif;
+        font: 400 14px/22px 'Roboto', 'Arial', sans-serif;
 
         position: relative;
 
@@ -5462,6 +5636,7 @@ body
                 box-sizing: border-box;
         width: 220px;
         height: 22px;
+        margin-bottom: 10px;
         padding-right: 16px;
         padding-left: 20px;
 
@@ -5504,11 +5679,10 @@ body
     {
         font-size: 14px;
 
-        display: inline-block;
+        display: inline-block; 
 
         width: 220px;
-        height: 20px;
-        height: auto; 
+        height: 22px;
         margin-bottom: 10px;
         padding-right: 16px;
         padding-left: 20px;
@@ -5544,6 +5718,7 @@ body
 
         width: 10px;
         height: 22px;
+        margin-bottom: 10px;
 
         -webkit-transition: all .35s;
         -webkit-transition: all .3s;

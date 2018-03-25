@@ -91,21 +91,6 @@ $( document ).ready(function() {
   mediaSize();
   window.addEventListener('resize', mediaSize, false);
 
-  function blockScroll() {
-    $(".program__days-tabs-slide").click(function() {
-      var slidePosition = $(this).offset().left;
-      console.log(slidePosition);
-      $(".program__days-tabs").animate({
-        scrollLeft: slidePosition
-      }, {
-        duration: 500,
-        easing: "swing"
-      });
-    });
-  };
-  blockScroll();
-  // $(".program__days-tabs").addEventListener('scroll', blockScroll, false);
-
   function redrawDotNav(){
     var section1Top =  0;
     var section2Top = $('#about').offset().top;
@@ -262,6 +247,22 @@ $( document ).ready(function() {
       }
     }
   });
+  $('.participate-popup__submit-btn').click(function(e) {
+    $('.success-popup').addClass('success-popup--show');
+    $('body').addClass('stop-scrolling');
+  });
+  $('.success-popup__button-close').click(function(e) {
+    $('.participate-popup').removeClass('participate-popup--show');
+    $('.success-popup').removeClass('success-popup--show');
+    $('body').removeClass('stop-scrolling');
+  });
+  $('.success-popup').click(function(e) {
+    if($(e.target).closest(".success-popup__block").length==0) {
+      $('.participate-popup').removeClass('participate-popup--show');
+      $('.success-popup').removeClass('success-popup--show');
+      $('body').removeClass('stop-scrolling');
+    }
+  });
 
 })
 
@@ -291,8 +292,11 @@ document.addEventListener('DOMContentLoaded', function(){
           prevLi.classList.add('main-nav__item-prev');
         }
 
+
         target.addEventListener('mouseout', function() {
-          prevLi.classList.remove('main-nav__item-prev');
+          if(prevLi) {
+            prevLi.classList.remove('main-nav__item-prev');
+          }
         }, false);
     }
   }
@@ -341,21 +345,21 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector('body').classList.add('stop-scrolling');
     });
   });
-  // Доделать клик вне блока
-  // popupOverlay.addEventListener('click', function(evt){
-  //   evt.preventDefault();
-  //   if (evt.target !== popupParticipateBlock) {
-  //     popupOverlay.classList.remove('participate-popup--show');
-  //     document.querySelector('body').classList.remove('stop-scrolling');
-  //   }
-  //   else {
-  //     return;
-  //   }
-  // });
   window.addEventListener("keydown", function(e) {
     if (e.keyCode === 27) {
       if (popupOverlay.classList.contains("participate-popup--show")) {
         document.querySelector('body').classList.remove("stop-scrolling");
+        popupOverlay.classList.remove("participate-popup--show");
+      }
+    }
+  });
+  var popupConnectSuccess = document.querySelector('.success-popup');
+
+  window.addEventListener("keydown", function(e) {
+    if (e.keyCode === 27) {
+      if (popupConnectSuccess.classList.contains("success-popup--show")) {
+        document.querySelector('body').classList.remove("stop-scrolling");
+        popupConnectSuccess.classList.remove("success-popup--show");
         popupOverlay.classList.remove("participate-popup--show");
       }
     }
@@ -420,9 +424,8 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   var swiperResults = new Swiper('.results__container', {
-    slidesPerView: '4',
+    slidesPerView: '5',
     slideToClickedSlide: true,
-    spaceBetween: 32,
     navigation: {
       nextEl: '.results .swiper-button-next',
       prevEl: '.results .swiper-button-prev',
@@ -527,32 +530,5 @@ document.addEventListener('DOMContentLoaded', function(){
     textareaFieldParticipate.classList.remove('participate-popup__form-textarea--hide');
     textareaFieldParticipate.classList.add('participate-popup__form-textarea--show');
   });
-
-
-
-// allowTouchMove: true,let quoteSwiper = new Swiper('.quote-slider');
-//
-// let imageSwiper = new Swiper('.image-slider', {
-//       nextButton: '.swiper-button-next',
-//       prevButton: '.swiper-button-prev',
-//     });
-//
-//     quoteSwiper.controller.control = imageSwiper;
-//     imageSwiper.controller.control = quoteSwiper;
-
-
-
-  //Скролл до формы обратной связи
-  // $(function () {
-  //   var headerHeight = $('.page-header').outerHeight();
-  //
-  //   if (window.location.hash) {
-  //     scroll(0, 0);
-  //     $('html,body').animate({
-  //       scrollTop: $(window.location.hash).offset().top - headerHeight
-  //     }, 1000);
-  //   }
-  // });
-
 
 });

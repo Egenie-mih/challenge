@@ -133,6 +133,19 @@ Array.from(tabsDays).forEach(function(link) {
     document.querySelector("#"+tab_id).classList.add('program__days-content-slide--current');
   });
 });
+function blockScroll() {
+  $(".program__days-tabs-slide").click(function() {
+    var slidePosition = $(this).offset().left;
+    console.log(slidePosition);
+    $(".program__days-tabs").animate({
+      scrollLeft: slidePosition
+    }, {
+      duration: 500,
+      easing: "swing"
+    });
+  });
+};
+blockScroll();
 
 toursTabs.init();
 tours.init();

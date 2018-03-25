@@ -58,7 +58,7 @@
   cursor: pointer;
   outline: 0;
   background-color: transparent;
-  transform: translateX(150px);
+  transform: translateX(110px);
   &:before,
   &:after {
     position: absolute;
@@ -77,6 +77,9 @@
   }
   &:after {
     transform: rotate(-45deg);
+  }
+  @media #{$mobile-widths} {
+    transform: translateX(150px);
   }
 }
 .results-popup__top {
