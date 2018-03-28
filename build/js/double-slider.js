@@ -35,7 +35,8 @@ var swiperTours = new Swiper('.tours .swiper-container', {
           events.emit('tourSlideChanged', this.activeIndex);
       },
       click: function () {
-          events.emit('tourSlideChanged', this.activeIndex);
+          console.log('click');
+          // events.emit('tourSlideChanged', this.activeIndex);
       },
 
       reachEnd: function () {
@@ -75,6 +76,7 @@ var toursTabs = {
     setTab(index) {
         this.makeTabActive(index);
         this.showContent(index);
+        this.index = index;
     },
 
     bindEvents() {
@@ -108,9 +110,14 @@ var tours = {
 
     cacheDom() {
       this.$toursBtns = $('.js-tour-btn')
+      this.$toursItems = $('.js-tours-item')
     },
 
     bindEvents() {
+        this.$toursItems = $('.js-tours-item').on('click',function (e) {
+            console.log('click');
+        });
+
         this.$toursBtns.on('click',function (e) {
             this.index = $(e.currentTarget).closest('.js-tours-item').index();
 
@@ -139,7 +146,7 @@ function blockScroll() {
         var childPos =  $(this).offset();
         var parentPos =  $(this).parent().offset();
         var offsetFirstTab = $firstTab.offset();
-        var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+        var previouslyScrolled = offsetFirsttab.left - parentPos.left;
         var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
         $(".js-program-days-tabs").animate({

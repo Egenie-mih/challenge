@@ -66,7 +66,7 @@ $( document ).ready(function() {
       duration: 500,
       easing: "swing"
     });
-    return false;
+    // return false;
   });
   $(".promo__participate-btn").click(function() {
     $("html, body").animate({
