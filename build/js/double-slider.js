@@ -134,16 +134,24 @@ Array.from(tabsDays).forEach(function(link) {
   });
 });
 function blockScroll() {
-  $(".program__days-tabs-slide").click(function() {
-    var slidePosition = $(this).offset().left;
-    console.log(slidePosition);
-    $(".program__days-tabs").animate({
-      scrollLeft: slidePosition
-    }, {
-      duration: 500,
-      easing: "swing"
+  $(".js-program-days-tab").click(function() {
+        var $firstTab = $(".js-program-days-tab:first-child");
+        var childPos =  $(this).offset();
+        var parentPos =  $(this).parent().offset();
+        var offsetFirstTab = $firstTab.offset();
+        var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+        var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+
+        $(".js-program-days-tabs").animate({
+          scrollLeft: childOffsetLeft
+        }, {
+          duration: 500,
+          easing: "swing",
+            complete: function () {
+                console.log(childOffsetLeft);
+            }.bind(this)
+        });
     });
-  });
 };
 blockScroll();
 
