@@ -50,42 +50,79 @@ $( document ).ready(function() {
   });
   var headerHeight = $('.page-header__top').outerHeight();
   if (window.location.hash) {
-    $('html,body').animate({
-      scrollTop: $(window.location.hash).offset().top - headerHeight
-    }, {
-      duration: 500,
-      easing: "swing"
-    });
-    return false;
+    if (window.matchMedia("(min-width: 1280px)").matches) {
+      $('html,body').animate({
+        scrollTop: $(window.location.hash).offset().top
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    } else {
+      $('html,body').animate({
+        scrollTop: $(window.location.hash).offset().top - headerHeight
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    }
   }
   $(".tours__choose-btn").click(function() {
+    if (window.matchMedia("(min-width: 1280px)").matches) {
 
-    $("html, body").animate({
-      scrollTop: $($(this).attr("href")).offset().top - headerHeight
-    }, {
-      duration: 500,
-      easing: "swing"
-    });
-    return false;
-  });
-  $(".promo__participate-btn").click(function() {
-    $("html, body").animate({
-      scrollTop: $($(this).attr("href")).offset().top - headerHeight
-    }, {
-      duration: 500,
-      easing: "swing"
-    });
-    return false;
-  });
-  function mediaSize() {
-    $(".main-nav__dropdown a").click(function() {
+      $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    } else {
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top - headerHeight
       }, {
         duration: 500,
         easing: "swing"
       });
-      return false;
+    }
+  });
+
+  $(".promo__participate-btn").click(function() {
+    if (window.matchMedia("(min-width: 1280px)").matches) {
+
+      $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    } else {
+      $("html, body").animate({
+        scrollTop: $($(this).attr("href")).offset().top - headerHeight
+      }, {
+        duration: 500,
+        easing: "swing"
+      });
+    }
+
+  });
+
+  function mediaSize() {
+    $(".main-nav__dropdown a").click(function() {
+      if (window.matchMedia("(min-width: 1280px)").matches) {
+
+        $("html, body").animate({
+          scrollTop: $($(this).attr("href")).offset().top
+        }, {
+          duration: 500,
+          easing: "swing"
+        });
+      } else {
+        $("html, body").animate({
+          scrollTop: $($(this).attr("href")).offset().top - headerHeight
+        }, {
+          duration: 500,
+          easing: "swing"
+        });
+      }
     });
   };
   mediaSize();

@@ -142,24 +142,45 @@ Array.from(tabsDays).forEach(function(link) {
 });
 function blockScroll() {
   $(".js-program-days-tab").click(function() {
-        var $firstTab = $(".js-program-days-tab:first-child");
-        var childPos =  $(this).offset();
-        var parentPos =  $(this).parent().offset();
-        var offsetFirstTab = $firstTab.offset();
-        var previouslyScrolled = offsetFirsttab.left - parentPos.left;
-        var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+    var $firstTab = $(this).parent().find(".js-program-days-tab:first-child");
+    var childPos =  $(this).offset();
+    var parentPos =  $(this).parent().offset();
+    var offsetFirstTab = $firstTab.offset();
+    var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+    var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
-        $(".js-program-days-tabs").animate({
-          scrollLeft: childOffsetLeft
-        }, {
-          duration: 500,
-          easing: "swing",
-            complete: function () {
-                console.log(childOffsetLeft);
-            }.bind(this)
-        });
+    $(".js-program-days-tabs").animate({
+      scrollLeft: childOffsetLeft
+    }, {
+      duration: 500,
+      easing: "swing",
+        // complete: function () {
+        //     console.log(childOffsetLeft);
+        // }.bind(this)
     });
+  });
 };
+function blockTourScroll() {
+  $(".js-tours-tab").click(function() {
+    var $firstTab = $(this).parent().find(".js-tours-tab:first-child");
+    var childPos =  $(this).offset();
+    var parentPos =  $(this).parent().offset();
+    var offsetFirstTab = $firstTab.offset();
+    var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+    var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+
+    $(".js-tours-tabs").animate({
+      scrollLeft: childOffsetLeft
+    }, {
+      duration: 500,
+      easing: "swing",
+        // complete: function () {
+        //     console.log(childOffsetLeft);
+        // }.bind(this)
+    });
+  });
+};
+blockTourScroll();
 blockScroll();
 
 toursTabs.init();

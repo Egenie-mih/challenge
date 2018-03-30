@@ -35,7 +35,8 @@ var swiperTours = new Swiper('.tours .swiper-container', {
           events.emit('tourSlideChanged', this.activeIndex);
       },
       click: function () {
-          events.emit('tourSlideChanged', this.activeIndex);
+          console.log('click');
+          // events.emit('tourSlideChanged', this.activeIndex);
       },
 
       reachEnd: function () {
@@ -75,6 +76,7 @@ var toursTabs = {
     setTab(index) {
         this.makeTabActive(index);
         this.showContent(index);
+        this.index = index;
     },
 
     bindEvents() {
@@ -108,9 +110,14 @@ var tours = {
 
     cacheDom() {
       this.$toursBtns = $('.js-tour-btn')
+      this.$toursItems = $('.js-tours-item')
     },
 
     bindEvents() {
+        this.$toursItems = $('.js-tours-item').on('click',function (e) {
+            console.log('click');
+        });
+
         this.$toursBtns.on('click',function (e) {
             this.index = $(e.currentTarget).closest('.js-tours-item').index();
 
@@ -134,17 +141,46 @@ Array.from(tabsDays).forEach(function(link) {
   });
 });
 function blockScroll() {
-  $(".program__days-tabs-slide").click(function() {
-    var slidePosition = $(this).offset().left;
-    console.log(slidePosition);
-    $(".program__days-tabs").animate({
-      scrollLeft: slidePosition
+  $(".js-program-days-tab").click(function() {
+    var $firstTab = $(this).parent().find(".js-program-days-tab:first-child");
+    var childPos =  $(this).offset();
+    var parentPos =  $(this).parent().offset();
+    var offsetFirstTab = $firstTab.offset();
+    var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+    var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+
+    $(".js-program-days-tabs").animate({
+      scrollLeft: childOffsetLeft
     }, {
       duration: 500,
-      easing: "swing"
+      easing: "swing",
+        // complete: function () {
+        //     console.log(childOffsetLeft);
+        // }.bind(this)
     });
   });
 };
+function blockTourScroll() {
+  $(".js-tours-tab").click(function() {
+    var $firstTab = $(this).parent().find(".js-tours-tab:first-child");
+    var childPos =  $(this).offset();
+    var parentPos =  $(this).parent().offset();
+    var offsetFirstTab = $firstTab.offset();
+    var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+    var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+
+    $(".js-tours-tabs").animate({
+      scrollLeft: childOffsetLeft
+    }, {
+      duration: 500,
+      easing: "swing",
+        // complete: function () {
+        //     console.log(childOffsetLeft);
+        // }.bind(this)
+    });
+  });
+};
+blockTourScroll();
 blockScroll();
 
 toursTabs.init();
