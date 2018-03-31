@@ -2,7 +2,6 @@ var swiperTours = new Swiper('.tours .swiper-container', {
   spaceBetween: 40,
   slidesPerView: 'auto',
   // slideToClickedSlide: true,
-  mousewheel: true,
   freeMode: true,
   pagination: {
     el: '.tours .swiper-pagination',
@@ -40,10 +39,6 @@ var swiperTours = new Swiper('.tours .swiper-container', {
 
       slideChange: function () {
           events.emit('tourSlideChanged', this.activeIndex);
-      },
-      click: function () {
-          // console.log('click');
-          // events.emit('tourSlideChanged', this.activeIndex);
       },
 
       reachEnd: function () {
@@ -135,6 +130,7 @@ var tours = {
             this.index = $(e.currentTarget).closest('.js-tours-item').index();
 
             events.emit('tourButtonClicked', this.index);
+
         }.bind(this));
     }
 }
@@ -178,7 +174,7 @@ Array.from(tabsDays).forEach(function(link) {
   });
 });
 function blockScroll() {
-  $(".js-program-days-tab").click(function() {
+  $(".js-program-days-tab").on('click',function (e) {
     var $firstTab = $(this).parent().find(".js-program-days-tab:first-child");
     var childPos =  $(this).offset();
     var parentPos =  $(this).parent().offset();
@@ -198,7 +194,7 @@ function blockScroll() {
   });
 };
 function blockTourScroll() {
-  $(".js-tours-tab").click(function() {
+  $(".js-tours-tab").on('click',function (e) {
     var $firstTab = $(this).parent().find(".js-tours-tab:first-child");
     var childPos =  $(this).offset();
     var parentPos =  $(this).parent().offset();

@@ -56,26 +56,26 @@ $( document ).ready(function() {
       });
     }
   }
-  $(".tours__choose-btn").click(function() {
+  $(".tours__choose-btn").on('click',function (e) {
     if (window.matchMedia("(min-width: 1280px)").matches) {
 
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top
       }, {
-        duration: 500,
+        duration: 2500,
         easing: "swing"
       });
     } else {
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top - headerHeight
       }, {
-        duration: 500,
+        duration: 2500,
         easing: "swing"
       });
     }
   });
 
-  $(".promo__participate-btn").click(function() {
+  $(".promo__participate-btn").on('click',function (e) {
     if (window.matchMedia("(min-width: 1280px)").matches) {
 
       $("html, body").animate({
