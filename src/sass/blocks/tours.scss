@@ -232,6 +232,7 @@
   }
   .tours__place  {
     margin: auto 0;
+    font: 900 24px/32px $font-roboto;
   }
 
 }
@@ -266,6 +267,9 @@
   }
   .tours__level {
     font: 400 18px/26px $font-roboto;
+  }
+  .tours__place  {
+    font: 900 36px/44px $font-roboto;
   }
 
 }

@@ -85,8 +85,24 @@ var toursTabs = {
         events.on('tourSlideChanged', function(index){
             if (this.index !== index) {
                 this.setTab(index);
-            }
+
+            };
+            var $firstTab = $(".js-tours-tabs").parent().find(".js-tours-tab:first-child");
+            var childPos =  $(".js-tours-tabs .current").offset();
+            var parentPos =  $(".js-tours-tabs").offset();
+            var offsetFirstTab = $firstTab.offset();
+            var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+            var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+
+            $(".js-tours-tabs").animate({
+              scrollLeft: childOffsetLeft
+            }, {
+              duration: 500,
+              easing: "swing",
+            });
+
         }.bind(this));
+
 
         events.on('tourButtonClicked', function(index){
             if (this.index !== index) {
@@ -98,6 +114,7 @@ var toursTabs = {
             if (this.index !== index) {
                 this.setTab(index);
             }
+            blockScroll();
         }.bind(this));
 
         this.$toursTabs.on('click',function (e) {

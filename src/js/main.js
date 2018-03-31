@@ -10,9 +10,7 @@ $( document ).ready(function() {
   });
 
 
-  $('input[name="name"]').focus(function() {
-    $(this).inputmask("А-Яа-я");
-  });
+
   $('input[name="participate-child-birthday"]').focus(function() {
     $(this).inputmask("date");
   });
@@ -44,14 +42,14 @@ $( document ).ready(function() {
       $('html,body').animate({
         scrollTop: $(window.location.hash).offset().top
       }, {
-        duration: 500,
+        duration: 200,
         easing: "swing"
       });
     } else {
       $('html,body').animate({
         scrollTop: $(window.location.hash).offset().top - headerHeight
       }, {
-        duration: 500,
+        duration: 200,
         easing: "swing"
       });
     }
