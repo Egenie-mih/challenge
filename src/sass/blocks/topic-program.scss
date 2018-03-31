@@ -135,7 +135,7 @@
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    height: 900px;
+    height: 700px;
     box-sizing: border-box;
   }
 }
@@ -173,7 +173,7 @@
   }
 }
 .topic__images {
-  & img{
+  & img {
     box-shadow: 0 5px 5px 0 #f3f3f3;
     width: 100%;
     height: auto;
@@ -187,8 +187,8 @@
     width: 592px;
     position: relative;
     & img{
-      width: 520px;
-      height: 400px;
+      width: 390px;
+      height: 300px;
     }
   }
 }
@@ -203,7 +203,7 @@
 .topic__image-forward {
   @media #{$desktop-widths} {
     position: absolute;
-    top: 311px;
+    top: 240px;;
     left: 72px;
   }
 }

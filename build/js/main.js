@@ -1,15 +1,5 @@
 $( document ).ready(function() {
 
-  // $(".topic__images").paroller({
-  //      factor: -0.3,            // multiplier for scrolling speed and offset
-  //      type: 'foreground',     // background, foreground
-  //      direction: 'vertical' // vertical, horizontal
-  // });
-  // $(".topic__text").paroller({
-  //      factor: 0.2,            // multiplier for scrolling speed and offset
-  //      type: 'foreground',     // background, foreground
-  //      direction: 'vertical' // vertical, horizontal
-  // });
   $('.results__item').hover(function(){
     $(this).addClass("results__item--hover");
     $(".results__item").not('.results__item--hover').css("opacity", ".8");
@@ -461,7 +451,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   var swiperResults = new Swiper('.results__container', {
-    slidesPerView: '5',
+    slidesPerView: 'auto',
     slideToClickedSlide: true,
     navigation: {
       nextEl: '.results .swiper-button-next',
@@ -473,9 +463,6 @@ document.addEventListener('DOMContentLoaded', function(){
       dragSize: 8,
     },
     breakpoints: {
-      480: {
-        slidesPerView: '1',
-      },
       780: {
         slidesPerView: 'auto',
         spaceBetween: 20,

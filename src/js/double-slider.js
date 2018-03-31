@@ -1,7 +1,7 @@
 var swiperTours = new Swiper('.tours .swiper-container', {
   spaceBetween: 40,
   slidesPerView: 'auto',
-  slideToClickedSlide: true,
+  // slideToClickedSlide: true,
   freeMode: true,
   pagination: {
     el: '.tours .swiper-pagination',
@@ -29,13 +29,19 @@ var swiperTours = new Swiper('.tours .swiper-container', {
                   this.slideTo(index);
               }
           }.bind(this));
+
+          events.on('tourSlideClicked', function(index){
+              if (this.activeIndex !== index ) {
+                  this.slideTo(index);
+              }
+          }.bind(this));
       },
 
       slideChange: function () {
           events.emit('tourSlideChanged', this.activeIndex);
       },
       click: function () {
-          console.log('click');
+          // console.log('click');
           // events.emit('tourSlideChanged', this.activeIndex);
       },
 
@@ -92,6 +98,12 @@ var toursTabs = {
             }
         }.bind(this));
 
+        events.on('tourSlideClicked', function(index){
+            if (this.index !== index) {
+                this.setTab(index);
+            }
+        }.bind(this));
+
         this.$toursTabs.on('click',function (e) {
            this.index = $(e.currentTarget).index();
 
@@ -115,13 +127,37 @@ var tours = {
 
     bindEvents() {
         this.$toursItems = $('.js-tours-item').on('click',function (e) {
-            console.log('click');
+            // console.log('click');
         });
 
         this.$toursBtns.on('click',function (e) {
             this.index = $(e.currentTarget).closest('.js-tours-item').index();
 
             events.emit('tourButtonClicked', this.index);
+        }.bind(this));
+    }
+}
+
+var toursSlide = {
+    init() {
+        this.cacheDom();
+        this.bindEvents();
+    },
+
+    cacheDom() {
+      this.$toursSlides = $('.js-tours-item-wrapper')
+      this.$toursItems = $('.js-tours-item')
+    },
+
+    bindEvents() {
+        this.$toursItems = $('.js-tours-item').on('click',function (e) {
+            console.log('click');
+        });
+
+        this.$toursSlides.on('click',function (e) {
+            this.index = $(e.currentTarget).closest('.js-tours-item').index();
+
+            events.emit('tourSlideClicked', this.index);
         }.bind(this));
     }
 }
@@ -185,3 +221,4 @@ blockScroll();
 
 toursTabs.init();
 tours.init();
+toursSlide.init();

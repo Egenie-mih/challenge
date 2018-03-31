@@ -59,13 +59,11 @@
   display: -ms-flex;
   display: flex;
   justify-content: space-between;
-  -ms-overflow-style: none;
   .swiper-wrapper {
     display: flex;
     justify-content: space-between;
   }
 }
-.questions__tabs::-webkit-scrollbar { display: none; height:0px; width: 0;background: transparent;}
 
 .questions__form-link {
   @include link();

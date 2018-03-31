@@ -71,10 +71,8 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    -ms-overflow-style: none;
   }
 
-  .tutors__list::-webkit-scrollbar { display: none; height:0px; width: 0;background: transparent;}
 
   .tutors__item {
     width: 280px;
