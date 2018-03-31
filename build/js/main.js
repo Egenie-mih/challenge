@@ -62,14 +62,14 @@ $( document ).ready(function() {
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top
       }, {
-        duration: 2500,
+        duration: 500,
         easing: "swing"
       });
     } else {
       $("html, body").animate({
         scrollTop: $($(this).attr("href")).offset().top - headerHeight
       }, {
-        duration: 2500,
+        duration: 500,
         easing: "swing"
       });
     }
