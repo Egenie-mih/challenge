@@ -151,10 +151,18 @@ $( document ).ready(function() {
       $(".main-nav a[href='#contacts']").addClass('main-nav__link-active');
     }
   }
+  // function parallaxOnScroll(){
+  //   var section2Top = $('.topic-program__content-list').offset().top;
+  //   var section3Top =  $('.program').offset().top;
+  //
+  //   if($(document).scrollTop() >= section2Top && $(document).scrollTop() < section3Top){
+  //   }
+  // }
+
   redrawDotNav();
-  $(window).bind('scroll',function(e){redrawDotNav();});
-
-
+  $(window).bind('scroll',function(e){
+    redrawDotNav();
+  });
 
   $(".tutors-popup__button-next").on("click", function(){
     var currentImg = $(".tutors-popup__block--current");

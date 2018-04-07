@@ -68,6 +68,7 @@ var toursTabs = {
             $(element).hide(0);
         })
         this.$toursContents.eq(index).fadeIn(200)
+
     },
 
     showTutorsContent(index) {
@@ -97,7 +98,7 @@ var toursTabs = {
             var previouslyScrolled = offsetFirstTab.left - parentPos.left;
             var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
-            $(".js-tours-tabs").animate({
+            $(".js-tours-tabs .simplebar-content").animate({
               scrollLeft: childOffsetLeft
             }, {
               duration: 500,

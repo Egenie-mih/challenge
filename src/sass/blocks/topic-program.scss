@@ -145,9 +145,11 @@
     display: flex;
     height: 700px;
     box-sizing: border-box;
+    position: relative;
   }
 }
 .topic__text {
+  min-height: 570px;
   &-title,
   & h3 {
     font: 900 24px/32px $font-roboto;
@@ -163,6 +165,9 @@
       margin-bottom: 0;
     }
   }
+  &-wrapper {
+    width: 100%;
+  }
   @media #{$desktop-widths} {
     order: 2;
     width: 488px;
@@ -171,11 +176,17 @@
       font: 900 36px/44px $font-roboto;
       margin-bottom: 25px;
     }
+    &-wrapper {
+      width: 488px;
+    }
   }
 
 }
 .topic__text {
   margin-bottom: 79px;
+  // position: absolute;
+  // right: 0;
+  // top: 40px;
   @media #{$desktop-widths} {
     margin-bottom: 0;
   }

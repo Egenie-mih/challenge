@@ -4237,6 +4237,10 @@ body
     padding-left: 10px;
 }
 
+.topic__text
+{
+    min-height: 570px;
+}
 .topic__text-title,
 .topic__text h3
 {
@@ -4246,7 +4250,6 @@ body
     margin-top: 0;
     margin-bottom: 33px;
 }
-
 .topic__text p
 {
     font: 400 16px/24px 'Roboto', 'Arial', sans-serif; 
@@ -4257,6 +4260,10 @@ body
 .topic__text p:last-child
 {
     margin-bottom: 0;
+}
+.topic__text-wrapper
+{
+    width: 100%;
 }
 
 .topic__text
@@ -4340,14 +4347,14 @@ body
 {
     top: 0;
 
-    border-radius: 5px; 
-    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
-            box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
+    border-radius: 5px;
 }
 .program__days-tabs.simplebar-track:hover .simplebar-scrollbar:before,
 .program__days-tabs .simplebar-track .simplebar-scrollbar.visible:before
 {
     opacity: .8;
+    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
+            box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
 }
 .program__days-tabs-slide
 {
@@ -6332,13 +6339,15 @@ body
     }
     .topic
     {
+        position: relative; 
+
         display: -ms-flex;
         display: -webkit-box;
         display: -ms-flexbox;
         display:     flex;
 
         -webkit-box-sizing: border-box;
-                box-sizing: border-box; 
+                box-sizing: border-box;
         width: 1280px;
         height: 700px;
         padding-top: 88px;
@@ -6359,6 +6368,10 @@ body
         font: 900 36px/44px 'Roboto', 'Arial', sans-serif;
 
         margin-bottom: 25px;
+    }
+    .topic__text-wrapper
+    {
+        width: 488px;
     }
     .topic__text
     {
