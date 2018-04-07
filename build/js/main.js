@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+  // $(".program__days-tabs").mCustomScrollbar({
+  //   axis:"x",
+  //   theme:"dark"
+  // });
+
   $('.results__item').hover(function(){
     $(this).addClass("results__item--hover");
     $(".results__item").not('.results__item--hover').css("opacity", ".8");
@@ -293,6 +298,7 @@ $( document ).ready(function() {
 
 document.addEventListener('DOMContentLoaded', function(){
 
+
   function hideMenu() {
     document.querySelector(".main-nav").classList.add("main-nav--desktop");
   }
@@ -438,19 +444,15 @@ document.addEventListener('DOMContentLoaded', function(){
     link.addEventListener('click', function(){
       var tab_id = this.getAttribute('data-tab');
 
-      var activeTab = this.parentNode.querySelector('.questions__tab--current');
-      activeTab.classList.remove('questions__tab--current');
-      var activeSlide = this.parentNode.parentNode.querySelector('.questions__block-item--current');
-      activeSlide.classList.remove('questions__block-item--current');
-
-      this.classList.add('questions__tab--current');
-      document.querySelector("#"+tab_id).classList.add('questions__block-item--current');
+      this.classList.toggle('questions__tab--current');
+      document.querySelector("#"+tab_id).classList.toggle('questions__block-item--current');
     });
   });
 
   var swiperResults = new Swiper('.results__container', {
     slidesPerView: 'auto',
     slideToClickedSlide: true,
+    slidesPerGroup: 6,
     navigation: {
       nextEl: '.results .swiper-button-next',
       prevEl: '.results .swiper-button-prev',
@@ -463,7 +465,8 @@ document.addEventListener('DOMContentLoaded', function(){
     breakpoints: {
       780: {
         slidesPerView: 'auto',
-        spaceBetween: 20,
+
+        slidesPerGroup: 1,
       }
     },
   });

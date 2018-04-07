@@ -1,8 +1,10 @@
 var swiperTours = new Swiper('.tours .swiper-container', {
-  spaceBetween: 40,
   slidesPerView: 'auto',
-  // slideToClickedSlide: true,
   freeMode: true,
+  navigation: {
+    nextEl: '.tours .swiper-button-next',
+    prevEl: '.tours .swiper-button-prev',
+  },
   pagination: {
     el: '.tours .swiper-pagination',
    clickable: true,
@@ -58,7 +60,8 @@ var toursTabs = {
 
     cacheDom() {
         this.$toursTabs = $('.js-tours-tab'),
-        this.$toursContents = $('.js-tours-tab-content')
+        this.$toursContents = $('.js-tours-tab-content'),
+        this.$tutorsContents = $('.js-tutors-content')
     },
 
     makeTabActive(index) {
@@ -75,9 +78,17 @@ var toursTabs = {
         this.$toursContents.eq(index).fadeIn(200)
     },
 
+    showTutorsContent(index) {
+        this.$tutorsContents.each( function (index, element) {
+            $(element).removeClass('tutors__list--active');
+        })
+        this.$tutorsContents.eq(index).addClass('tutors__list--active')
+    },
+
     setTab(index) {
         this.makeTabActive(index);
         this.showContent(index);
+        this.showTutorsContent(index);
         this.index = index;
     },
 
@@ -175,6 +186,7 @@ var toursSlide = {
         }.bind(this));
     }
 }
+
 
 var tabsDays = document.querySelectorAll('.program__days-tabs-slide')
 Array.from(tabsDays).forEach(function(link) {

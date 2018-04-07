@@ -90,7 +90,7 @@
       height: 22px;
       padding-left: 20px;
       padding-right: 16px;
-      border-radius: 2px;
+      border-radius: 22px;
       box-sizing: border-box;
       display: block;
       margin-bottom: 10px;
@@ -133,6 +133,18 @@
       &:hover {
         width: 250px;
       }
+      &:after {
+        display: none;
+      }
+      &.main-nav__link-active {
+        background-color: $red;
+        color: $white;
+      }
+    }
+    & .main-nav__link-active {
+      &:after {
+        background-color: $red;
+      }
     }
     & li {
       display: -webkit-flex;
@@ -153,7 +165,6 @@
       width: 10px;
       height: 22px;
       margin-bottom: 10px;
-      opacity: 0.4;
       background-color: transparent;
       &:after {
         background-color: #b5b5b5;
@@ -164,7 +175,6 @@
       }
 
       &.main-nav__link-active {
-        opacity: 1;
 
         &:hover {
           opacity: 1;

@@ -3,6 +3,7 @@ section.questions(id="questions")
     h2.questions__title Важные вопросы
 
     .questions__block
+        button(type="button" data-tab="question1").questions__tab.questions__tab--current Проживание и Питание
         .questions__block-item.questions__block-item--current(id="question1")
           .questions__topic
             h3.questions__topic-title Проживание
@@ -10,6 +11,8 @@ section.questions(id="questions")
           .questions__topic
             h3.questions__topic-title Питание
             p Завтрак и ужин строго регламентированы по времени. Мы едим по предварительной договоренности в качественной столовой. На обед командам выдаются деньги, и они сами принимают решение где и во сколько пообедать.
+        button(type="button" data-tab="question2").questions__tab Медицина и Безопасность
+
         .questions__block-item(id="question2")
           .questions__topic
             h3.questions__topic-title Медицина
@@ -17,6 +20,7 @@ section.questions(id="questions")
           .questions__topic
             h3.questions__topic-title Безопасность
             p Завтрак и ужин строго регламентированы по времени. Мы едим по предварительной
+        button(type="button" data-tab="question3").questions__tab Связь и Сопровождение
         .questions__block-item(id="question3")
           .questions__topic
             h3.questions__topic-title Связь
@@ -25,7 +29,4 @@ section.questions(id="questions")
             h3.questions__topic-title Сопровождение
             p Завтрак и ужин строго регламентированы по времени. Мы едим по предварительной
     .questions__tabs
-        button(type="button" data-tab="question1").questions__tab.questions__tab--current Проживание и Питание
-        button(type="button" data-tab="question2").questions__tab Медицина и Безопасность
-        button(type="button" data-tab="question3").questions__tab Связь и Сопровождение
     a(href="#").questions__form-link У меня вопрос

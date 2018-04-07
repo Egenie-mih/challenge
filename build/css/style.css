@@ -616,7 +616,7 @@ body
 
 .page-header__top
 {
-    padding: 18px 0;
+    padding: 8px 0;
 }
 .page-header__top--white
 {
@@ -2424,15 +2424,19 @@ body
 .tutors__list
 {
     display: -ms-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display:     flex;
+    display: none;
 
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+.tutors__list--active
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .tutors__item
@@ -2767,7 +2771,6 @@ body
 .tours__container
 {
     width: 300px;
-    padding: 0 10px;
 }
 
 .tours__item
@@ -2777,10 +2780,15 @@ body
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     width: 300px;
+    margin-right: 40px;
 
     text-align: center;
 
     color: #fff;
+}
+.tours__item:last-child
+{
+    margin-right: 0;
 }
 
 .tours__item-wrapper
@@ -2982,7 +2990,7 @@ body
 {
     display: none;
 
-    min-height: 355px;
+    padding: 30px 15px;
 
     -webkit-transition: all .35s;
             transition: all .35s; 
@@ -3001,7 +3009,6 @@ body
 
 .questions__topic
 {
-    width: 300px;
     margin-bottom: 30px;
 }
 .questions__topic .questions__topic-title,
@@ -3018,32 +3025,6 @@ body
 
     margin-top: 0;
     margin-bottom: 10px;
-}
-
-.questions__tabs
-{
-    display: -ms-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display:     flex;
-    overflow: scroll;
-
-    width: 100%;
-    margin-top: 22px;
-
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-}
-.questions__tabs .swiper-wrapper
-{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
 }
 
 .questions__form-link
@@ -3086,32 +3067,52 @@ body
 {
     font: 400 16px/24px 'Roboto', 'Arial', sans-serif;
 
+    position: relative;
+
+    display: block;
+
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    width: 250px;
+    width: 100%;
     height: 56px;
-    margin-right: 32px;
-    margin-bottom: 10px;
     padding: 15px;
 
     cursor: pointer;
     -webkit-transition: all .35s;
             transition: all .35s;
-    text-align: center;
+    text-align: left;
 
     border: 0;
-    border-radius: 28px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05); 
     outline: 0;
     background-color: #fafafa;
-    -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .05);
-            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .05); 
 
     -ms-flex-negative: 0;
     flex-shrink: 0;
 }
-.questions__tab:last-child
+.questions__tab:first-of-type
 {
-    margin-right: 0;
+    border-radius: 10px 10px 0 0;
+}
+.questions__tab:last-of-type
+{
+    border-radius: 0 0 10px 10px;
+}
+.questions__tab:last-of-type.questions__tab--current
+{
+    border-radius: 0;
+}
+.questions__tab:after
+{
+    position: absolute;
+    top: 22px;
+    right: 15px;
+
+    content: '';
+
+    border: 8px solid transparent;
+    border-top: 12px solid #242424;
+    border-bottom: 0;
 }
 .questions__tab:hover
 {
@@ -3147,6 +3148,11 @@ body
     background-color: #242424;
     -webkit-box-shadow: 0 0 0 0 transparent;
             box-shadow: 0 0 0 0 transparent;
+}
+.questions__tab--current:after
+{
+    border-top: 0; 
+    border-bottom: 12px solid white;
 }
 
 .questions-popup
@@ -3668,32 +3674,6 @@ body
 
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    max-width: 1108px;
-    padding: 0 50px;
-}
-.results .swiper-container:before,
-.results .swiper-container:after
-{
-    position: absolute;
-    z-index: 2; 
-    top: 0;
-
-    display: block;
-
-    width: 50px;
-    height: 100%;
-
-    content: '';
-
-    background-color: #fafafa;
-}
-.results .swiper-container:before
-{
-    left: 0;
-}
-.results .swiper-container:after
-{
-    right: 0;
 }
 .results .swiper-scrollbar
 {
@@ -3745,22 +3725,26 @@ body
 .results .swiper-button-next
 {
     z-index: 10;
+    top: 0;
     right: 0;
+    bottom: 0;
 
     width: 16px;
     height: 32px;
-    margin-top: 0;
+    margin: auto 0;
 
     background-image: url('../img/navigation_left_black.png');
     background-size: 16px 32px;
 }
 .results .swiper-button-prev
 {
+    top: 0;
+    bottom: 0;
     left: 0;
 
     width: 16px;
     height: 32px;
-    margin-top: 0;
+    margin: auto 0;
 
     background-image: url('../img/navigation_right_black.png');
     background-size: 16px 32px;
@@ -3818,10 +3802,8 @@ body
 
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    max-width: 1108px;
     margin: 0 auto;
     margin-top: 50px; 
-    padding: 0 50px;
 
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -4264,6 +4246,11 @@ body
     background-repeat: no-repeat;
     background-position: center 136px, center;
 }
+.program .swiper-scrollbar
+{
+    width: 100%;
+    height: 5px;
+}
 
 .program__title
 {
@@ -4278,8 +4265,43 @@ body
     color: #fff;
 }
 
+.program__days-tabs::-webkit-scrollbar-track
+{
+    position: absolute;
+    bottom: 10px; 
+    left: 0;
+
+    height: 4px;
+
+    border-radius: 10px;
+}
+
+.program__days-tabs::-webkit-scrollbar
+{
+    position: absolute;
+    bottom: 10px; 
+    left: 0;
+
+    width: 4px;
+    height: 4px;
+}
+
+.program__days-tabs::-webkit-scrollbar-thumb
+{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+
+    height: 4px;
+
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
 .program__days-tabs
 {
+    position: relative;
+
     display: -ms-flex;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4691,9 +4713,7 @@ body
     }
     .tours__container
     {
-        width: 424px; 
-        padding-right: 28px;
-        padding-left: 28px;
+        width: 424px;
     }
     .tours__item
     {
@@ -4707,13 +4727,7 @@ body
     }
     .questions__tab
     {
-        font: 400 18px/26px 'Roboto', 'Arial', sans-serif; 
-
-        width: 312px;
-    }
-    .questions__topic
-    {
-        width: 404px;
+        font: 400 18px/26px 'Roboto', 'Arial', sans-serif;
     }
     .questions-popup__block
     {
@@ -4724,9 +4738,24 @@ body
     {
         width: 384px;
     }
+    .results .swiper-container
+    {
+        width: 324px;
+        padding: 0;
+    }
     .results .swiper-scrollbar
     {
         width: 425px;
+    }
+    .results .swiper-scrollbar
+    {
+        width: 324px;
+        padding: 0;
+    }
+    .results__social
+    {
+        width: 324px;
+        padding: 0;
     }
     .results-popup__block
     {
@@ -5209,8 +5238,6 @@ body
 
         width: 744px;
         margin: 0 auto; 
-        padding-right: 12px;
-        padding-left: 12px;
 
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -5223,7 +5250,6 @@ body
     }
     .tours__item
     {
-        margin: 0;
         margin-bottom: 24px;
     }
     .tours__item-wrapper
@@ -5275,22 +5301,8 @@ body
     .questions
     {
         padding-bottom: 70px;
-
-        background-image: url('../img/logo_black--transparent.png');
-        background-repeat: no-repeat; 
-        background-position: center 30px;
-        background-size: 560px 555px;
     }
-    .questions__tab
-    {
-        width: 300px;
-    }
-    .questions__topic
-    {
-        width: 488px;
-        margin: 0 auto;
-    }
-    .questions__topic .questions__topic-title,
+    .questions__topic-title,
     .questions__topic h3
     {
         font: 900 24px/32px 'Roboto', 'Arial', sans-serif;
@@ -5304,6 +5316,11 @@ body
     {
         right: 0;
     }
+    .results .swiper-container
+    {
+        width: 644px;
+        padding: 0;
+    }
     .results .swiper-scrollbar
     {
         width: 592px;
@@ -5311,6 +5328,7 @@ body
     .results .swiper-slide
     {
         width: 146px;
+        margin-right: 20px;
     }
     .results .results
     {
@@ -5320,6 +5338,11 @@ body
     {
         width: 146px;
         height: 146px;
+    }
+    .results__social
+    {
+        width: 644px;
+        padding: 0;
     }
     .results-popup__button-close
     {
@@ -5681,7 +5704,7 @@ body
         text-decoration: none;
 
         color: #000;
-        border-radius: 2px;
+        border-radius: 22px;
         background-color: #eaeaea;
 
         mix-blend-mode: difference;
@@ -5729,6 +5752,19 @@ body
     {
         width: 250px;
     }
+    .main-nav--desktop nav:hover a:after
+    {
+        display: none;
+    }
+    .main-nav--desktop nav:hover a.main-nav__link-active
+    {
+        color: #fff; 
+        background-color: #ec4417;
+    }
+    .main-nav--desktop nav .main-nav__link-active:after
+    {
+        background-color: #ec4417;
+    }
     .main-nav--desktop nav li
     {
         display: -ms-flex;
@@ -5761,7 +5797,6 @@ body
                 transition: all .35s;
         -webkit-transform-origin: 50% 100%;
 
-        opacity: .4;
         background-color: transparent;
     }
     .main-nav--desktop nav a:after
@@ -5771,10 +5806,6 @@ body
     .main-nav--desktop nav a:hover
     {
         opacity: .8;
-    }
-    .main-nav--desktop nav a.main-nav__link-active
-    {
-        opacity: 1;
     }
     .main-nav--desktop nav a.main-nav__link-active:hover
     {
@@ -6041,7 +6072,7 @@ body
     .tutors
     {
         padding-top: 73px;
-        padding-bottom: 100px;
+        padding-bottom: 84px;
     }
     .tutors__title
     {
@@ -6049,10 +6080,22 @@ body
 
         margin-bottom: 57px;
     }
+    .tutors__list
+    {
+        overflow-x: visible; 
+
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
     .tutors__item
     {
-        min-height: 408px; 
+        min-height: 408px;
         margin-right: 32px;
+        margin-bottom: 16px;
+    }
+    .tutors__item:nth-child(4n)
+    {
+        margin-right: 0;
     }
     .tutors__img
     {
@@ -6081,8 +6124,6 @@ body
     .tours__container
     {
         width: 1216px;
-        padding-right: 32px;
-        padding-left: 32px;
     }
     .tours__item-wrapper
     {
@@ -6136,8 +6177,6 @@ body
         display:     flex;
             flex-direction: row;
 
-        min-height: 265px; 
-
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -6148,7 +6187,6 @@ body
     .questions__topic
     {
         width: 478px;
-        margin: 0;
     }
     .questions__title
     {
@@ -6174,22 +6212,56 @@ body
     .results
     {
         padding-top: 73px;
-        padding-bottom: 118px;
+        padding-bottom: 90px;
+    }
+    .results .swiper-container
+    {
+        width: 1108px;
+        padding: 0 50px;
+    }
+    .results .swiper-container:before,
+    .results .swiper-container:after
+    {
+        position: absolute;
+        z-index: 2; 
+        top: 0;
+
+        display: block;
+
+        width: 50px;
+        height: 100%;
+
+        content: '';
+
+        background-color: #fafafa;
+    }
+    .results .swiper-container:before
+    {
+        left: 0;
+    }
+    .results .swiper-container:after
+    {
+        right: 0;
+    }
+    .results .swiper-slide
+    {
+        margin: 0 11px;
     }
     .results .swiper-button-next,
     .results .swiper-button-prev
     {
         display: block;
     }
-    .results .swiper-button-disabled
-    {
-        display: none;
-    }
     .results__title
     {
         font: 900 36px/44px 'Roboto', 'Arial', sans-serif; 
 
         margin-bottom: 55px;
+    }
+    .results__social
+    {
+        width: 1108px;
+        padding: 0 50px;
     }
     .results-popup__ask-btn
     {
@@ -6391,6 +6463,23 @@ body
         padding-left: 10px;
     }
     .questions__container
+    {
+        width: 300px; 
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .results .swiper-container
+    {
+        width: 300px; 
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .results .swiper-scrollbar
+    {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .results__social
     {
         width: 300px; 
         padding-right: 10px;

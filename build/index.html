@@ -108,6 +108,8 @@
             </article>
           </div>
           <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </section>
       <section class="topic-program" id="programs">
@@ -135,7 +137,7 @@
               <section class="program">
                 <h2 class="program__title">Программа выезда</h2>
                 <div class="program__days">
-                  <div class="program__days-tabs js-program-days-tabs">
+                  <div class="program__days-tabs js-program-days-tabs" data-simplebar>
                     <div class="program__days-tabs-slide js-program-days-tab program__days-tabs-slide--current" data-tab="d5"> <span class="program__days-tabs-number">День 1: </span><span class="program__days-tabs-name">День Взрослого Человека</span></div>
                     <div class="program__days-tabs-slide js-program-days-tab" data-tab="d54"> <span class="program__days-tabs-number">День 2: </span><span class="program__days-tabs-name">День Взрослого Человека</span></div>
                     <div class="program__days-tabs-slide js-program-days-tab" data-tab="d55"> <span class="program__days-tabs-number">День 3: </span><span class="program__days-tabs-name">День Взрослого Человека</span></div>
@@ -476,6 +478,7 @@
         <div class="questions__container">
           <h2 class="questions__title">Важные вопросы</h2>
           <div class="questions__block">
+            <button class="questions__tab questions__tab--current" type="button" data-tab="question1">Проживание и Питание</button>
             <div class="questions__block-item questions__block-item--current" id="question1">
               <div class="questions__topic">
                 <h3 class="questions__topic-title">Проживание</h3>
@@ -486,6 +489,7 @@
                 <p>Завтрак и ужин строго регламентированы по времени. Мы едим по предварительной договоренности в качественной столовой. На обед командам выдаются деньги, и они сами принимают решение где и во сколько пообедать.</p>
               </div>
             </div>
+            <button class="questions__tab" type="button" data-tab="question2">Медицина и Безопасность</button>
             <div class="questions__block-item" id="question2">
               <div class="questions__topic">
                 <h3 class="questions__topic-title">Медицина</h3>
@@ -496,6 +500,7 @@
                 <p>Завтрак и ужин строго регламентированы по времени. Мы едим по предварительной</p>
               </div>
             </div>
+            <button class="questions__tab" type="button" data-tab="question3">Связь и Сопровождение</button>
             <div class="questions__block-item" id="question3">
               <div class="questions__topic">
                 <h3 class="questions__topic-title">Связь</h3>
@@ -507,39 +512,62 @@
               </div>
             </div>
           </div>
-          <div class="questions__tabs">
-            <button class="questions__tab questions__tab--current" type="button" data-tab="question1">Проживание и Питание</button>
-            <button class="questions__tab" type="button" data-tab="question2">Медицина и Безопасность</button>
-            <button class="questions__tab" type="button" data-tab="question3">Связь и Сопровождение</button>
-          </div><a class="questions__form-link" href="#">У меня вопрос</a>
+          <div class="questions__tabs"></div><a class="questions__form-link" href="#">У меня вопрос</a>
         </div>
       </section>
       <section class="tutors" id="tutors">
         <div class="tutors__container">
           <h2 class="tutors__title">Наставники</h2>
-          <div class="tutors__container-swiper">
-            <div class="tutors__list">
-              <article class="tutors__item" data-tab="tutor1">
-                <div class="tutors__img"><img src="img/photo_7_1.png"></div>
-                <h4 class="tutors__name">Ангелина Исаева</h4>
-                <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
-              </article>
-              <article class="tutors__item" data-tab="tutor2">
-                <div class="tutors__img"><img src="img/photo_7_2.png"></div>
-                <h4 class="tutors__name">Валерий Астанчук</h4>
-                <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
-              </article>
-              <article class="tutors__item" data-tab="tutor3">
-                <div class="tutors__img"><img src="img/photo_7_3.png"></div>
-                <h4 class="tutors__name">Валентин Макеев</h4>
-                <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
-              </article>
-              <article class="tutors__item" data-tab="tutor4">
-                <div class="tutors__img"><img src="img/photo_7_4.png"></div>
-                <h4 class="tutors__name">Влад Никифоров</h4>
-                <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
-              </article>
-            </div>
+          <div class="tutors__list tutors__list--active js-tutors-content">
+            <article class="tutors__item" data-tab="tutor1">
+              <div class="tutors__img"><img src="img/photo_7_1.png"></div>
+              <h4 class="tutors__name">Ангелина Исаева</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor2">
+              <div class="tutors__img"><img src="img/photo_7_2.png"></div>
+              <h4 class="tutors__name">Валерий Астанчук</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor3">
+              <div class="tutors__img"><img src="img/photo_7_3.png"></div>
+              <h4 class="tutors__name">Валентин Макеев</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor4">
+              <div class="tutors__img"><img src="img/photo_7_4.png"></div>
+              <h4 class="tutors__name">Влад Никифоров</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+          </div>
+          <div class="tutors__list js-tutors-content">
+            <article class="tutors__item" data-tab="tutor2">
+              <div class="tutors__img"><img src="img/photo_7_2.png"></div>
+              <h4 class="tutors__name">Валерий Астанчук</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor3">
+              <div class="tutors__img"><img src="img/photo_7_3.png"></div>
+              <h4 class="tutors__name">Валентин Макеев</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor4">
+              <div class="tutors__img"><img src="img/photo_7_4.png"></div>
+              <h4 class="tutors__name">Влад Никифоров</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+          </div>
+          <div class="tutors__list js-tutors-content">
+            <article class="tutors__item" data-tab="tutor4">
+              <div class="tutors__img"><img src="img/photo_7_3.png"></div>
+              <h4 class="tutors__name">Валентин Макеев</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
+            <article class="tutors__item" data-tab="tutor4">
+              <div class="tutors__img"><img src="img/photo_7_4.png"></div>
+              <h4 class="tutors__name">Влад Никифоров</h4>
+              <p class="tutors__bio">Британский государственный и политический деятель, в 1940—1945 премьер-министр Великобритании.</p>
+            </article>
           </div>
         </div>
       </section>
