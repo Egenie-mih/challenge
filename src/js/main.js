@@ -1,10 +1,5 @@
 $( document ).ready(function() {
 
-  // $(".program__days-tabs").mCustomScrollbar({
-  //   axis:"x",
-  //   theme:"dark"
-  // });
-
   $('.results__item').hover(function(){
     $(this).addClass("results__item--hover");
     $(".results__item").not('.results__item--hover').css("opacity", ".8");

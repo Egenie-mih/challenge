@@ -36,10 +36,10 @@
 
   .swiper-button-next {
     position: absolute;
-
     background-image: url("../img/navigation_right_white.png");
-    height: 536px;
-    width: 104px;
+    background-size: 20px 33px;
+    height: 352px;
+    width: 64px;
     right: 0;
     z-index: 1000;
     top: 22px;
@@ -60,8 +60,9 @@
   .swiper-button-prev {
     position: absolute;
     background-image: url("../img/navigation_left_white.png");
-    height: 536px;
-    width: 104px;
+    background-size: 20px 33px;
+    height: 352px;
+    width: 64px;
     z-index: 1000;
     left: 0px;
     top: 22px;
@@ -82,6 +83,12 @@
     .swiper-slide img {
       margin: 0;
     }
+    .swiper-button-prev,
+    .swiper-button-next {
+      height: 536px;
+      width: 104px;
+      background-size: 27px 44px;
+    }
   }
 }
 .tours__container {
@@ -92,18 +99,21 @@
 
 }
 .tours__item {
-  width: 300px;
+  width: 296px;
   text-align: center;
   box-sizing: border-box;
   position: relative;
-  margin-right: 40px;
+  margin-right: 10px;
   color: $white;
   &:last-child {
     margin-right: 0;
   }
-
-  @media #{$mobile-widths} {
-    width: 296px;
+  @media #{$tablet-widths} {
+    margin-right: 40px;
+    width: 300px;
+  }
+  @media #{$desktop-widths} {
+    margin-right: 40px;
   }
 }
 .tours__item-wrapper {
@@ -153,6 +163,7 @@
     z-index: 0;
     top: 0;
     filter: blur(1px);
+    border-radius: 8px;
   }
 }
 .tours__text {

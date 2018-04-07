@@ -7,15 +7,7 @@ var swiperTours = new Swiper('.tours .swiper-container', {
   },
   pagination: {
     el: '.tours .swiper-pagination',
-   clickable: true,
-  },
-  breakpoints: {
-   480: {
-     spaceBetween: 10,
-   },
-   780: {
-     spaceBetween: 16,
-   }
+    clickable: true,
   },
 
   on: {
@@ -193,9 +185,9 @@ Array.from(tabsDays).forEach(function(link) {
   link.addEventListener('click', function(){
     var tab_id = this.getAttribute('data-tab');
 
-    var activeTab = this.parentNode.querySelector('.program__days-tabs-slide--current');
+    var activeTab = this.parentNode.parentNode.parentNode.parentNode.querySelector('.program__days-tabs-slide--current');
     activeTab.classList.remove('program__days-tabs-slide--current');
-    var activeSlide = this.parentNode.parentNode.parentNode.querySelector('.program__days-content-slide--current');
+    var activeSlide = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.program__days-content-slide--current');
     activeSlide.classList.remove('program__days-content-slide--current');
 
     this.classList.add('program__days-tabs-slide--current');
@@ -211,7 +203,7 @@ function blockScroll() {
     var previouslyScrolled = offsetFirstTab.left - parentPos.left;
     var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
-    $(".js-program-days-tabs").animate({
+    $(".js-program-days-tabs .simplebar-content").animate({
       scrollLeft: childOffsetLeft
     }, {
       duration: 500,
@@ -231,7 +223,7 @@ function blockTourScroll() {
     var previouslyScrolled = offsetFirstTab.left - parentPos.left;
     var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
-    $(".js-tours-tabs").animate({
+    $(".js-tours-tabs .simplebar-content").animate({
       scrollLeft: childOffsetLeft
     }, {
       duration: 500,

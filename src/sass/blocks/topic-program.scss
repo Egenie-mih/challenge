@@ -13,7 +13,15 @@
   display: flex;
   width: 100%;
   height: 100%;
-
+  & .simplebar-scroll-content {
+    padding-right: 0;
+  }
+  & .simplebar-content {
+    isplay: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: space-between;
+  }
   @media #{$mobile-small-widths-only}
   {
       width: 300px;

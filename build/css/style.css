@@ -2438,6 +2438,20 @@ body
     display: -ms-flexbox;
     display: flex;
 }
+.tutors__list .simplebar-content
+{
+    display: -ms-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:     flex;
+
+    isplay: -webkit-flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
 
 .tutors__item
 {
@@ -2716,10 +2730,11 @@ body
     top: 22px; 
     right: 0;
 
-    width: 104px;
-    height: 536px;
+    width: 64px;
+    height: 352px;
 
     background-image: url('../img/navigation_right_white.png');
+    background-size: 20px 33px;
 }
 .tours .swiper-button-next:after
 {
@@ -2747,10 +2762,11 @@ body
     top: 22px; 
     left: 0;
 
-    width: 104px;
-    height: 536px;
+    width: 64px;
+    height: 352px;
 
     background-image: url('../img/navigation_left_white.png');
+    background-size: 20px 33px;
 }
 .tours .swiper-button-prev:after
 {
@@ -2779,8 +2795,8 @@ body
 
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    width: 300px;
-    margin-right: 40px;
+    width: 296px;
+    margin-right: 10px;
 
     text-align: center;
 
@@ -2849,6 +2865,8 @@ body
 
     width: 100%;
     height: auto;
+
+    border-radius: 8px; 
 
     -webkit-filter: blur(1px);
             filter: blur(1px);
@@ -4094,6 +4112,22 @@ body
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.topic-program__tabs .simplebar-scroll-content
+{
+    padding-right: 0;
+}
+.topic-program__tabs .simplebar-content
+{
+    display: -ms-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:     flex;
+
+    isplay: -webkit-flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
 .topic-program__tabs-place,
 .topic-program__tabs-date
 {
@@ -4265,39 +4299,6 @@ body
     color: #fff;
 }
 
-.program__days-tabs::-webkit-scrollbar-track
-{
-    position: absolute;
-    bottom: 10px; 
-    left: 0;
-
-    height: 4px;
-
-    border-radius: 10px;
-}
-
-.program__days-tabs::-webkit-scrollbar
-{
-    position: absolute;
-    bottom: 10px; 
-    left: 0;
-
-    width: 4px;
-    height: 4px;
-}
-
-.program__days-tabs::-webkit-scrollbar-thumb
-{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-
-    height: 4px;
-
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, .5);
-}
-
 .program__days-tabs
 {
     position: relative;
@@ -4315,6 +4316,22 @@ body
 
     -webkit-box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, .2);
             box-shadow: inset 0 -2px 0 0 rgba(255, 255, 255, .2);
+}
+.program__days-tabs .simplebar-content
+{
+    display: -ms-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:     flex;
+}
+.program__days-tabs .horizontal.simplebar-track .simplebar-scrollbar
+{
+    top: 0;
+}
+.program__days-tabs.simplebar-track:hover .simplebar-scrollbar:before,
+.program__days-tabs .simplebar-track .simplebar-scrollbar.visible:before
+{
+    opacity: .8;
 }
 .program__days-tabs-slide
 {
@@ -4715,10 +4732,6 @@ body
     {
         width: 424px;
     }
-    .tours__item
-    {
-        width: 296px;
-    }
     .questions__container
     {
         width: 424px; 
@@ -5075,7 +5088,8 @@ body
         padding-right: 12px;
         padding-left: 12px;
     }
-    .tutors__list
+    .tutors__list,
+    .tutors__list .simplebar-content
     {
         overflow-x: scroll; 
 
@@ -5223,6 +5237,11 @@ body
     .tutors-popup__job
     {
         font: 400 16px/24px 'Roboto', 'Arial', sans-serif;
+    }
+    .tours__item
+    {
+        width: 300px; 
+        margin-right: 40px;
     }
     .tours
     {
@@ -6080,7 +6099,8 @@ body
 
         margin-bottom: 57px;
     }
-    .tutors__list
+    .tutors__list,
+    .tutors__list .simplebar-content
     {
         overflow-x: visible; 
 
@@ -6108,6 +6128,18 @@ body
     .tours .swiper-slide img
     {
         margin: 0;
+    }
+    .tours .swiper-button-prev,
+    .tours .swiper-button-next
+    {
+        width: 104px;
+        height: 536px;
+
+        background-size: 27px 44px;
+    }
+    .tours__item
+    {
+        margin-right: 40px;
     }
     .tours__choose-btn
     {

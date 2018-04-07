@@ -21,6 +21,13 @@
   &--active {
     display: flex;
   }
+  & .simplebar-content {
+    isplay: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 .tutors__item {
   width: 146px;
@@ -70,7 +77,8 @@
   }
 }
 @media #{$tablet-widths} {
-  .tutors__list {
+  .tutors__list,
+  .tutors__list .simplebar-content {
     justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -115,7 +123,8 @@
     font: 900 36px/44px $font-roboto;
     margin-bottom: 57px;
   }
-  .tutors__list {
+  .tutors__list,
+  .tutors__list .simplebar-content {
     flex-wrap: wrap;
     overflow-x: visible;
   }
