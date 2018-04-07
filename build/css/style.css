@@ -2452,6 +2452,10 @@ body
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.tutors__list .simplebar-track.vertical
+{
+    display: none;
+}
 
 .tutors__item
 {
@@ -4128,6 +4132,10 @@ body
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.topic-program__tabs .simplebar-track.vertical
+{
+    display: none;
+}
 .topic-program__tabs-place,
 .topic-program__tabs-date
 {
@@ -4324,9 +4332,17 @@ body
     display: -ms-flexbox;
     display:     flex;
 }
+.program__days-tabs .simplebar-track.vertical
+{
+    display: none;
+}
 .program__days-tabs .horizontal.simplebar-track .simplebar-scrollbar
 {
     top: 0;
+
+    border-radius: 5px; 
+    -webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
+            box-shadow: 0 0 1px 1px rgba(255, 255, 255, .5);
 }
 .program__days-tabs.simplebar-track:hover .simplebar-scrollbar:before,
 .program__days-tabs .simplebar-track .simplebar-scrollbar.visible:before

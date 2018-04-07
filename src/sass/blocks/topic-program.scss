@@ -22,6 +22,9 @@
     display: flex;
     justify-content: space-between;
   }
+  & .simplebar-track.vertical {
+    display: none;
+  }
   @media #{$mobile-small-widths-only}
   {
       width: 300px;

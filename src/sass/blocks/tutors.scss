@@ -28,6 +28,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  & .simplebar-track.vertical {
+    display: none;
+  }
 }
 .tutors__item {
   width: 146px;
