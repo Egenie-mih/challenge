@@ -29,13 +29,21 @@
 .program__days-tabs {
   margin: 0 auto;
   position: relative;
-  margin-bottom: 58px;
+  margin-bottom: 50px;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
   overflow-x: scroll;
-  box-shadow: inset 0 -2px 0 0 rgba($white, 0.2);
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 13px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: rgba($white, 0.2);
+  }
   & .simplebar-content {
     display: -webkit-flex;
     display: -ms-flex;
@@ -75,7 +83,7 @@
 
   }
   &-slide {
-    padding: 15px 10px 20px;
+    padding: 15px 10px 34px;
     color: rgba($white, 0.7);
     cursor: pointer;
     position: relative;
@@ -92,7 +100,7 @@
       &:after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: 14px;
         left: 0;
         height: 4px;
         border-radius: 2px;
@@ -106,7 +114,7 @@
       &:after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: 14px;
         left: 0;
         height: 4px;
         border-radius: 2px;
