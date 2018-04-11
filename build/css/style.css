@@ -6500,6 +6500,11 @@ body
         width: 1216px;
         margin-bottom: 77px;
     }
+    .program__days .swiper-button-next,
+    .program__days .swiper-button-prev
+    {
+        height: 84px;
+    }
     .program__days-tabs-number,
     .program__days-tabs-name
     {
