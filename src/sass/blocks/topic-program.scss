@@ -32,7 +32,7 @@
     justify-content: space-between;
   }
   & .simplebar-track.vertical {
-    display: none;
+    display: none!important;
   }
   @media #{$mobile-small-widths-only}
   {

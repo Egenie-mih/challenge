@@ -1,3 +1,20 @@
+$(".topic-program__content .swiper-container").each(function(index, element){
+  var $this = $(this);
+  $this.addClass("topic-program__content--" + index);
+  $this.find(".swiper-button-prev").addClass("swiper-button-prev-" + index);
+  $this.find(".swiper-button-next").addClass("swiper-button-next-" + index);
+
+  var swiperPrograms = new Swiper(".topic-program__content--" + index, {
+    slidesPerView: 'auto',
+    slideToClickedSlide: true,
+    slideClass: 'program__days-tabs-slide',
+    navigation: {
+      nextEl: ".swiper-button-next-" + index,
+      prevEl: ".swiper-button-prev-" + index,
+    },
+  });
+});
+
 var swiperTours = new Swiper('.tours .swiper-container', {
   slidesPerView: 'auto',
   freeMode: true,
@@ -186,35 +203,35 @@ Array.from(tabsDays).forEach(function(link) {
   link.addEventListener('click', function(){
     var tab_id = this.getAttribute('data-tab');
 
-    var activeTab = this.parentNode.parentNode.parentNode.parentNode.querySelector('.program__days-tabs-slide--current');
+    var activeTab = this.parentNode.querySelector('.program__days-tabs-slide--current');
     activeTab.classList.remove('program__days-tabs-slide--current');
-    var activeSlide = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.program__days-content-slide--current');
+    var activeSlide = this.parentNode.parentNode.parentNode.querySelector('.program__days-content-slide--current');
     activeSlide.classList.remove('program__days-content-slide--current');
 
     this.classList.add('program__days-tabs-slide--current');
     document.querySelector("#"+tab_id).classList.add('program__days-content-slide--current');
   });
 });
-function blockScroll() {
-  $(".js-program-days-tab").on('click',function (e) {
-    var $firstTab = $(this).parent().find(".js-program-days-tab:first-child");
-    var childPos =  $(this).offset();
-    var parentPos =  $(this).parent().offset();
-    var offsetFirstTab = $firstTab.offset();
-    var previouslyScrolled = offsetFirstTab.left - parentPos.left;
-    var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
-
-    $(".js-program-days-tabs .simplebar-content").animate({
-      scrollLeft: childOffsetLeft
-    }, {
-      duration: 500,
-      easing: "swing",
-        // complete: function () {
-        //     console.log(childOffsetLeft);
-        // }.bind(this)
-    });
-  });
-};
+// function blockScroll() {
+//   $(".js-program-days-tab").on('click',function (e) {
+//     var $firstTab = $(this).parent().find(".js-program-days-tab:first-child");
+//     var childPos =  $(this).offset();
+//     var parentPos =  $(this).parent().offset();
+//     var offsetFirstTab = $firstTab.offset();
+//     var previouslyScrolled = offsetFirstTab.left - parentPos.left;
+//     var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
+//
+//     $(".js-program-days-tabs .simplebar-content").animate({
+//       scrollLeft: childOffsetLeft
+//     }, {
+//       duration: 500,
+//       easing: "swing",
+//         // complete: function () {
+//         //     console.log(childOffsetLeft);
+//         // }.bind(this)
+//     });
+//   });
+// };
 function blockTourScroll() {
   $(".js-tours-tab").on('click',function (e) {
     var $firstTab = $(this).parent().find(".js-tours-tab:first-child");
@@ -224,7 +241,7 @@ function blockTourScroll() {
     var previouslyScrolled = offsetFirstTab.left - parentPos.left;
     var childOffsetLeft = childPos.left - parentPos.left - previouslyScrolled;
 
-    $(".js-tours-tabs .simplebar-content").animate({
+    $(".js-tours-tabs").animate({
       scrollLeft: childOffsetLeft
     }, {
       duration: 500,
@@ -236,7 +253,7 @@ function blockTourScroll() {
   });
 };
 blockTourScroll();
-blockScroll();
+// blockScroll();
 
 toursTabs.init();
 tours.init();

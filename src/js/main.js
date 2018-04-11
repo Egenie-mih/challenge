@@ -164,32 +164,6 @@ $( document ).ready(function() {
     redrawDotNav();
   });
 
-  $(".tutors-popup__button-next").on("click", function(){
-    var currentImg = $(".tutors-popup__block--current");
-    var next = currentImg.next();
-    if(next.length){
-      currentImg.removeClass("tutors-popup__block--current");
-      next.addClass("tutors-popup__block--current");
-      $(".tutors-popup__button-prev").removeClass("tutors-popup__button-prev--disabled");
-
-    } else {
-      $(".tutors-popup__button-next").addClass("tutors-popup__button-next--disabled");
-    }
-  });
-
-  $(".tutors-popup__button-prev").on("click", function(){
-    var currentImg = $(".tutors-popup__block--current");
-    var prev = currentImg.prev();
-    if(prev.length){
-      $(".tutors-popup__button-next").removeClass("tutors-popup__button-next--disabled");
-
-      currentImg.removeClass("tutors-popup__block--current");
-      prev.addClass("tutors-popup__block--current");
-    } else {
-      $(".tutors-popup__button-prev").addClass("tutors-popup__button-prev--disabled");
-    }
-  });
-
   $(".results-popup__button-next").on("click", function(){
     var currentImg = $(".results-popup__block--current");
     var next = currentImg.next();
