@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector(".main-nav").classList.add("main-nav--desktop");
   }
   if (window.matchMedia("(min-width: 1280px)").matches) {
-    setTimeout(hideMenu, 4000);
+    setTimeout(hideMenu, 2000);
   }
   else {
     window.onscroll = function () {
