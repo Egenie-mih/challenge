@@ -1,15 +1,5 @@
 $( document ).ready(function() {
 
-  $('.results__item').hover(function(){
-    $(this).addClass("results__item--hover");
-    $(".results__item").not('.results__item--hover').css("opacity", ".8");
-  });
-  $('.results__item').mouseleave(function(){
-    $(this).removeClass("results__item--hover");
-    $(".results__item").not('.results__item--hover').css("opacity", "1");
-  });
-
-
 
   $('input[name="participate-child-birthday"]').focus(function() {
     $(this).inputmask("date");
@@ -36,6 +26,7 @@ $( document ).ready(function() {
   lightbox.option({
     'alwaysShowNavOnTouchDevices': true,
   });
+
   var headerHeight = $('.page-header__top').outerHeight();
   if (window.location.hash) {
     if (window.matchMedia("(min-width: 1280px)").matches) {
@@ -164,6 +155,8 @@ $( document ).ready(function() {
     redrawDotNav();
   });
 
+  //results block
+
   $(".results-popup__button-next").on("click", function(){
     var currentImg = $(".results-popup__block--current");
     var next = currentImg.next();
@@ -185,50 +178,6 @@ $( document ).ready(function() {
       prev.addClass("results-popup__block--current");
     } else {
       $(".results-popup__button-prev").addClass("results-popup__button-prev--disabled");
-    }
-  });
-
-  $('.participate-popup__button-close').click(function(e) {
-    $('.participate-popup').removeClass('participate-popup--show');
-    $('body').removeClass('stop-scrolling');
-  });
-  $('.participate-popup').click(function(e) {
-    if($(e.target).closest(".participate-popup__block").length==0) {
-      $('.participate-popup').removeClass('participate-popup--show');
-      $('body').removeClass('stop-scrolling');
-    }
-  });
-  $('.questions-popup__button-close').click(function(e) {
-    $('.questions-popup').removeClass('questions-popup--show');
-    $('body').removeClass('stop-scrolling');
-  });
-  $('.questions-popup').click(function(e) {
-    if($(e.target).closest(".questions-popup__block").length==0 && $(e.target).closest(".questions-popup__button-prev").length==0 && $(e.target).closest(".questions-popup__button-next").length==0) {
-      $('.questions-popup').removeClass('questions-popup--show');
-      $('body').removeClass('stop-scrolling');
-    }
-  });
-
-  $('.tutors-popup__button-close').click(function(e) {
-    $('.tutors-popup').removeClass('tutors-popup--show');
-    $('body').removeClass('stop-scrolling');
-    $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
-    if($(".tutors-popup__button-prev--disabled")) {
-      $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
-    } else {
-      $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
-    }
-  });
-  $('.tutors-popup').click(function(e) {
-    if($(e.target).closest(".tutors-popup__block").length==0 && $(e.target).closest(".tutors-popup__button-prev").length==0 && $(e.target).closest(".tutors-popup__button-next").length==0) {
-      $('.tutors-popup').removeClass('tutors-popup--show');
-      $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
-      $('body').removeClass('stop-scrolling');
-      if($(".tutors-popup__button-prev--disabled")) {
-        $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
-      } else {
-        $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
-      }
     }
   });
 
@@ -254,6 +203,28 @@ $( document ).ready(function() {
       }
     }
   });
+
+  $('.results__item').hover(function(){
+    $(this).addClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", ".8");
+  });
+  $('.results__item').mouseleave(function(){
+    $(this).removeClass("results__item--hover");
+    $(".results__item").not('.results__item--hover').css("opacity", "1");
+  });
+
+  //participate block
+
+  $('.participate-popup__button-close').click(function(e) {
+    $('.participate-popup').removeClass('participate-popup--show');
+    $('body').removeClass('stop-scrolling');
+  });
+  $('.participate-popup').click(function(e) {
+    if($(e.target).closest(".participate-popup__block").length==0) {
+      $('.participate-popup').removeClass('participate-popup--show');
+      $('body').removeClass('stop-scrolling');
+    }
+  });
   $('.participate-popup__submit-btn').click(function(e) {
     $('.success-popup').addClass('success-popup--show');
     $('body').addClass('stop-scrolling');
@@ -271,10 +242,49 @@ $( document ).ready(function() {
     }
   });
 
+  //question block
+
+  $('.questions-popup__button-close').click(function(e) {
+    $('.questions-popup').removeClass('questions-popup--show');
+    $('body').removeClass('stop-scrolling');
+  });
+  $('.questions-popup').click(function(e) {
+    if($(e.target).closest(".questions-popup__block").length==0 && $(e.target).closest(".questions-popup__button-prev").length==0 && $(e.target).closest(".questions-popup__button-next").length==0) {
+      $('.questions-popup').removeClass('questions-popup--show');
+      $('body').removeClass('stop-scrolling');
+    }
+  });
+
+  //tutors block
+
+  $('.tutors-popup__button-close').click(function(e) {
+    $('.tutors-popup').removeClass('tutors-popup--show');
+    $('body').removeClass('stop-scrolling');
+    $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
+    if($(".tutors-popup__button-prev--disabled")) {
+      $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
+    } else {
+      $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
+    }
+  });
+  $('.tutors-popup').click(function(e) {
+    if($(e.target).closest(".tutors-popup__block").length==0 && $(e.target).closest(".tutors-popup__button-prev").length==0 && $(e.target).closest(".tutors-popup__button-next").length==0) {
+      $('.tutors-popup').removeClass('tutors-popup--show');
+      $('.tutors-popup__block--current').removeClass('tutors-popup__block--current');
+      $('body').removeClass('stop-scrolling');
+      if($(".tutors-popup__button-prev--disabled")) {
+        $('.tutors-popup__button-prev--disabled').removeClass('tutors-popup__button-prev--disabled');
+      } else {
+        $('.tutors-popup__button-next--disabled').removeClass('tutors-popup__button-next--disabled');
+      }
+    }
+  });
+
 })
 
 document.addEventListener('DOMContentLoaded', function(){
 
+  // меню
 
   function hideMenu() {
     document.querySelector(".main-nav").classList.add("main-nav--desktop");
@@ -299,8 +309,6 @@ document.addEventListener('DOMContentLoaded', function(){
         if(prevLi) {
           prevLi.classList.add('main-nav__item-prev');
         }
-
-
         target.addEventListener('mouseout', function() {
           if(prevLi) {
             prevLi.classList.remove('main-nav__item-prev');
@@ -312,15 +320,12 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector(".main-nav__dropdown").addEventListener('mouseover', addPrevClass, false);
   }
 
+  // Показывает/скрывает меню
   var mainNav = document.querySelector('html');
   var mainNavBtn = document.querySelector('.main-nav__trigger');
-
-
   mainNav.classList.remove('main-nav--no-js');
-
-  // Показывает/скрывает меню
-  mainNavBtn.addEventListener('click', function(evt) {
-    evt.preventDefault();
+  mainNavBtn.addEventListener('click', function(e) {
+    e.preventDefault();
 
     if (mainNav.classList.contains('show-main-nav')) {
       mainNav.classList.remove('show-main-nav');
@@ -361,8 +366,9 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
   });
-  var popupConnectSuccess = document.querySelector('.success-popup');
 
+  //Попап свяжитесь со мной
+  var popupConnectSuccess = document.querySelector('.success-popup');
   window.addEventListener("keydown", function(e) {
     if (e.keyCode === 27) {
       if (popupConnectSuccess.classList.contains("success-popup--show")) {
@@ -373,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  //Попап свяжитесь со мной
+  //Попап с вопросами
   var popupConnect = document.querySelector('.questions-popup');
   var popupConnectBlock = document.querySelector('.questions-popup__block');
   var popupConnectClick = document.querySelector('.questions__form-link');
@@ -392,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  //Слайдер для длока с фотогалереей
+  //слайдер для блока с фотогалереей
   var swiperPhotos = new Swiper('.photos .swiper-container', {
     initialSlide: 5,
     spaceBetween: 0,
@@ -412,7 +418,6 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     },
   });
-
 
   //табы для блока с вопросами
 
@@ -448,10 +453,7 @@ document.addEventListener('DOMContentLoaded', function(){
     },
   });
 
-
-
-
-
+  //Попап для наставников
   var popupTutors = document.querySelectorAll('.tutors__item');
   Array.from(popupTutors).forEach(function(link) {
     link.addEventListener('click', function(){
