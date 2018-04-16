@@ -1,19 +1,26 @@
-$(".topic-program__content .swiper-container").each(function(index, element){
-  var $this = $(this);
-  $this.addClass("topic-program__content--" + index);
-  $this.find(".swiper-button-prev").addClass("swiper-button-prev-" + index);
-  $this.find(".swiper-button-next").addClass("swiper-button-next-" + index);
-
-  var swiperPrograms = new Swiper(".topic-program__content--" + index, {
-    slidesPerView: 'auto',
-    slideToClickedSlide: true,
-    slideClass: 'program__days-tabs-slide',
-    navigation: {
-      nextEl: ".swiper-button-next-" + index,
-      prevEl: ".swiper-button-prev-" + index,
-    },
-  });
-});
+if ($('.topic-program__content .swiper-container').length > 0) {
+    let swiperInstances = [];
+    $(".topic-program__content .swiper-container").each(function(index, element){ //some-slider-wrap-in
+        const $this = $(this);
+        $this.addClass("swiper-container--" + index); //instance need to be unique (ex: some-slider)
+        $this.parent().find(".swiper-button-prev").addClass("swiper-button-prev--" + index); //prev must be unique (ex: some-slider-prev)
+        $this.parent().find(".swiper-button-next").addClass("swiper-button-next--" + index); //next must be unique (ex: some-slider-next)
+        swiperInstances[index] = new Swiper(".swiper-container--" + index, { //instance need to be unique (ex: some-slider)
+            slidesPerView: 'auto',
+            slideToClickedSlide: true,
+            slideClass: 'program__days-tabs-slide',
+            navigation: {
+                prevEl: ".swiper-button-prev--" + index,
+                nextEl: ".swiper-button-next--" + index,
+            },
+        });
+    });
+    setInterval(function () {
+      for (const slider of swiperInstances) {
+        slider.update();
+      }
+    }, 2500);
+}
 
 var swiperTours = new Swiper('.tours .swiper-container', {
   slidesPerView: 'auto',
@@ -135,7 +142,6 @@ var toursTabs = {
             if (this.index !== index) {
                 this.setTab(index);
             }
-            blockScroll();
         }.bind(this));
 
         this.$toursTabs.on('click',function (e) {
